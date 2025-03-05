@@ -25,5 +25,32 @@
   },
   "skill": {
     "title": "SKILLS"
+  },
+
+  "projectSection": {
+    "title": "My Recent",
+    "works": "Works",
+    "subTitle": "Here are a few projects I've worked on recently."
+  },
+
+  "aboutSection": {
+    "introduce": "Introduce",
+    "myself": "Myself",
+    "greeting": "Hi there, Duy Lăng here!",
+    "working": "I am currently working as a web developer",
+    "education": "I have completed Bachelor's degree in National Economics University (NEU)",
+    "hobbiesHeading": "Apart from coding, some other activities that I love to do!",
+    "hobbies": {
+      "reading": "Reading Books",
+      "exercizing": "Exercizing",
+      "traveling": "Travelling"
+    },
+    "quote": "\"Pursuing Your Dreams~.~\"",
+    "educationTitle": "Education",
+    "educationDuration": "2020-2024",
+    "educationDegree": "Computer Scienece",
+    "educationUniversity": "National Economics University (NEU)",
+    "findMe": "FIND ME ON",
+    "contactMe": "Contact me"
   }
 }

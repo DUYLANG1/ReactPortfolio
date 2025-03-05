@@ -25,5 +25,32 @@
   },
   "skill": {
     "title": "Kỹ năng"
+  },
+
+  "projectSection": {
+    "title": "Dự án ",
+    "works": "gần đây",
+    "subTitle": "Một vài dự án tôi đã làm gần đây."
+  },
+
+  "aboutSection": {
+    "introduce": "Giới thiệu",
+    "myself": "bản thân",
+    "greeting": "Hi there, Duy Lăng here!",
+    "working": "Hiện đang làm việc với chức danh lập trình website",
+    "education": "Tốt nghiệp Cử nhân Khoa học Máy tính tại Đại học Kinh tế Quốc dân (NEU)",
+    "hobbiesHeading": "Một số hoạt động yêu thích khác!",
+    "hobbies": {
+      "reading": "Đọc sách",
+      "exercizing": "Tập thể dục",
+      "traveling": "Du lịch"
+    },
+    "quote": "\"Theo đuổi ước mơ của bạn ~.~\"",
+    "educationTitle": "Học vấn",
+    "educationDuration": "2020-2024",
+    "educationDegree": "Khoa học Máy tính",
+    "educationUniversity": "Đại học Kinh tế Quốc dân (NEU)",
+    "findMe": "KẾT NỐI",
+    "contactMe": "Liên hệ"
   }
 }

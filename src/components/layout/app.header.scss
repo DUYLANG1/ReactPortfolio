@@ -1,0 +1,38 @@
+// c:\Users\hungv\Downloads\ReactPortfolio\src\components\layout\app.header.scss
+
+.app-header {
+  background-color: var(--background);
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+  //   position: relative;
+  z-index: 100;
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: rgb(1, 215, 87, 0.95);
+  }
+
+  .navbar-brand {
+    .brand-green {
+      color: var(--brand-green);
+    }
+  }
+  .nav-link {
+    color: var(--text-color);
+    transition: color 0.3s ease-in-out;
+    &:hover,
+    &.active {
+      color: var(--brand-red);
+    }
+  }
+
+  .navbar-toggler {
+    border-color: var(--text-color);
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+  }
+}

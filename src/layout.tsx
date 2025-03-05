@@ -6,7 +6,9 @@ function Layout() {
   return (
     <div>
       <AppHeader />
-      <Outlet />
+      <main style={{ minHeight: "80vh" }}>
+        <Outlet />
+      </main>
       <AppFooter />
     </div>
   );

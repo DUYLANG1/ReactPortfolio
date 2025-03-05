@@ -1,18 +1,30 @@
+import { useEffect, useState, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { MdOutlineLightMode, MdNightlight } from "react-icons/md";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useCurrentApp } from "components/context/app.context";
 import { useTranslation } from "react-i18next";
 import { NavDropdown } from "react-bootstrap";
 import viFlag from "assets/svg/language/vi.svg";
 import enFlag from "assets/svg/language/en.svg";
+import "./app.header.scss"; // Import SCSS
 type ThemeContextType = "light" | "dark";
 
 function AppHeader() {
   const { theme, setTheme } = useCurrentApp();
   const { t, i18n } = useTranslation();
+  const [isSticky, setIsSticky] = useState(false); // State for sticky behavior
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY >= 40);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleMode = (mode: ThemeContextType) => {
     localStorage.setItem("theme", mode);
@@ -20,35 +32,33 @@ function AppHeader() {
     setTheme(mode);
   };
 
-  const renderFlag = (language: string) => {
-    return (
-      <img
-        style={{ height: 20, width: 20 }}
-        src={language === "en" ? enFlag : viFlag}
-        alt={language}
-      />
-    );
+  const renderFlag = (language: string) => (
+    <img
+      style={{ height: 20, width: 20 }}
+      src={language === "en" ? enFlag : viFlag}
+      alt={language}
+    />
+  );
+
+  const handleBrandClick = () => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
-    <Navbar
-      data-bs-theme={theme}
-      expand="lg"
-      className="bg-body-tertiary"
-      style={{ zIndex: 1 }}
-    >
+    <Navbar expand="lg" className={`app-header ${isSticky ? "sticky" : ""}`}>
       <Container>
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/" onClick={handleBrandClick}>
           <span className="brand-green">{t("appHeader.brand")}</span>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/" onClick={handleBrandClick}>
               {t("appHeader.home")}
             </NavLink>
             <NavLink className="nav-link" to="/project">
-              {" "}
               {t("appHeader.project")}
             </NavLink>
             <NavLink className="nav-link" to="/about">
@@ -69,18 +79,13 @@ function AppHeader() {
                 />
               )}
             </div>
-
             <NavDropdown title={renderFlag(i18n.resolvedLanguage!)}>
               <div
                 onClick={() => i18n.changeLanguage("en")}
                 className="dropdown-item d-flex gap-2 align-items-center"
                 style={{ cursor: "pointer" }}
               >
-                <img
-                  style={{ height: 20, width: 20 }}
-                  src={enFlag}
-                  alt="english"
-                />
+                <img style={{ height: 20, width: 20 }} src={enFlag} alt="en" />
                 <span>English</span>
               </div>
               <div
@@ -88,11 +93,7 @@ function AppHeader() {
                 className="dropdown-item d-flex gap-2 align-items-center"
                 style={{ cursor: "pointer" }}
               >
-                <img
-                  style={{ height: 20, width: 20 }}
-                  src={viFlag}
-                  alt="vietnamese"
-                />
+                <img style={{ height: 20, width: 20 }} src={viFlag} alt="vi" />
                 <span>Tiếng Việt</span>
               </div>
             </NavDropdown>
