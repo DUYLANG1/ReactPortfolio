@@ -9,26 +9,31 @@ import AboutPage from "pages/about";
 import { AppContextProvider } from "components/context/app.context";
 import "@/i18n";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: <HomePage />,
+        },
+        {
+          path: "/project",
+          element: <ProjectPage />,
+        },
+        {
+          path: "/about",
+          element: <AboutPage />,
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <HomePage />,
-      },
-      {
-        path: "/project",
-        element: <ProjectPage />,
-      },
-      {
-        path: "/about",
-        element: <AboutPage />,
-      },
-    ],
-  },
-]);
+    basename: "/ReactPortfolio",
+  }
+);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
