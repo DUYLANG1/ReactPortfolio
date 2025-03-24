@@ -20,18 +20,18 @@ const router = createBrowserRouter(
           element: <HomePage />,
         },
         {
-          path: "/project",
+          path: "project",
           element: <ProjectPage />,
         },
         {
-          path: "/about",
+          path: "about",
           element: <AboutPage />,
         },
       ],
     },
   ],
   {
-    basename: "/ReactPortfolio",
+    basename: "",
   }
 );
 
