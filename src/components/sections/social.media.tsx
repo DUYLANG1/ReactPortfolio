@@ -1,14 +1,13 @@
-import { FaFacebook, FaLinkedin } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 import { SiGithub, SiGmail } from "react-icons/si";
 
 interface IProps {
   linkedin: string;
   gmail: string;
   github: string;
-  facebook: string;
 }
 const SocialMedia = (props: IProps) => {
-  const { linkedin, gmail, github, facebook } = props;
+  const { linkedin, gmail, github } = props;
 
   return (
     <div className="my-4 d-flex items-center gap-3">
@@ -35,14 +34,6 @@ const SocialMedia = (props: IProps) => {
         title="Youtube Hỏi Dân IT"
       >
         <SiGithub size={30} />
-      </a>
-      <a
-        href={facebook}
-        target="_blank"
-        className="highlight"
-        title="Facebook Hỏi Dân IT"
-      >
-        <FaFacebook size={30} />
       </a>
     </div>
   );
