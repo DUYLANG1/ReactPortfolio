@@ -19,7 +19,7 @@ const HeroLeft = (props: IProps) => {
   };
   const handleDownloadCV = () => {
     openInNewTab(
-      "https://drive.google.com/file/d/1C5QTI1hXBeLkLbEg3vQoxlVYv4G4G6f9/view"
+      "https://drive.google.com/file/d/17uS2pGIU16svq7g5xm4oYWMpKoqEc8CP/view?usp=sharing"
     );
   };
   return (
