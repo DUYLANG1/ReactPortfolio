@@ -1,42 +1,65 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+  ReactNode,
+} from "react";
+import ErrorBoundary from "components/common/ErrorBoundary";
+
+export type ThemeContextType = "light" | "dark";
 
 interface IAppContext {
   theme: ThemeContextType;
-  setTheme: (v: ThemeContextType) => void;
+  setTheme: (theme: ThemeContextType) => void;
 }
-
-type ThemeContextType = "light" | "dark";
 
 const AppContext = createContext<IAppContext | null>(null);
 
-export const AppContextProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const AppContextProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<ThemeContextType>(() => {
-    const initialTheme =
-      (localStorage.getItem("theme") as ThemeContextType) || "light";
-    return initialTheme;
+    try {
+      const storedTheme = localStorage.getItem("theme") as ThemeContextType;
+      return storedTheme || "light";
+    } catch (error) {
+      console.error("Failed to access localStorage:", error);
+      return "light";
+    }
   });
 
+  const handleThemeChange = useCallback((newTheme: ThemeContextType) => {
+    try {
+      localStorage.setItem("theme", newTheme);
+      document.documentElement.setAttribute("data-bs-theme", newTheme);
+      setTheme(newTheme);
+    } catch (error) {
+      console.error("Failed to set theme:", error);
+    }
+  }, []);
+
   useEffect(() => {
-    const mode = localStorage.getItem("theme") as ThemeContextType;
-    if (mode) {
-      setTheme(mode);
-      document.documentElement.setAttribute("data-bs-theme", mode);
+    try {
+      const storedTheme = localStorage.getItem("theme") as ThemeContextType;
+      if (storedTheme) {
+        document.documentElement.setAttribute("data-bs-theme", storedTheme);
+      }
+    } catch (error) {
+      console.error("Failed to access localStorage in effect:", error);
     }
   }, []);
 
   return (
-    <AppContext.Provider
-      value={{
-        theme,
-        setTheme,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
+    <ErrorBoundary>
+      <AppContext.Provider
+        value={{
+          theme,
+          setTheme: handleThemeChange,
+        }}
+      >
+        {children}
+      </AppContext.Provider>
+    </ErrorBoundary>
   );
 };
 

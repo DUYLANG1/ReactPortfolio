@@ -12,8 +12,12 @@ import "@/i18n";
 const HomePage = lazy(() =>
   import("pages/home").then((module) => ({ default: module.default }))
 );
-const ProjectPage = lazy(() => import("pages/project"));
-const AboutPage = lazy(() => import("pages/about"));
+const ProjectPage = lazy(() =>
+  import("pages/project").then((module) => ({ default: module.default }))
+);
+const AboutPage = lazy(() =>
+  import("pages/about").then((module) => ({ default: module.default }))
+);
 
 const router = createBrowserRouter([
   {

@@ -6,22 +6,26 @@ import ResizeButton from "components/sections/resize.button";
 import { APP_DATA } from "helpers/data";
 import { MdFileDownload } from "react-icons/md";
 import { AiFillFire } from "react-icons/ai";
+import { memo, useCallback } from "react";
 
 interface IProps {
   scrollToExperienceSection: () => void;
 }
-const HeroLeft = (props: IProps) => {
+
+const HeroLeft = memo(({ scrollToExperienceSection }: IProps) => {
   const { t } = useTranslation();
 
-  const openInNewTab = (url: string): void => {
+  const openInNewTab = useCallback((url: string): void => {
     const newWindow = window.open(url, "_blank", "noopener,noreferrer");
     if (newWindow) newWindow.opener = null;
-  };
-  const handleDownloadCV = () => {
+  }, []);
+
+  const handleDownloadCV = useCallback(() => {
     openInNewTab(
       "https://drive.google.com/file/d/1Gew4CC4LWNtWG33d4AfbwYbvHMxJutLc/view"
     );
-  };
+  }, [openInNewTab]);
+
   return (
     <div className="hero-left">
       <h3>
@@ -30,7 +34,7 @@ const HeroLeft = (props: IProps) => {
           👋🏻
         </span>
       </h3>
-      <h3 style={{ paddingTop: 10, paddingBottom: 5 }}>
+      <h3 className="hero-title">
         I'M &nbsp;
         <strong className="brand-red">{t("appHeader.brand")}</strong>
       </h3>
@@ -52,7 +56,7 @@ const HeroLeft = (props: IProps) => {
       </div>
       <div className="d-flex flex-column flex-md-row gap-3 gap-md-4 mt-4">
         <ResizeButton
-          onClick={props.scrollToExperienceSection}
+          onClick={scrollToExperienceSection}
           btnText={t("heroSection.exp")}
           btnIcons={<AiFillFire style={{ color: "orange" }} />}
           btnStyle={{
@@ -73,6 +77,6 @@ const HeroLeft = (props: IProps) => {
       </div>
     </div>
   );
-};
+});
 
 export default HeroLeft;

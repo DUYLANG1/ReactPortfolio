@@ -85,14 +85,18 @@ function AppHeader() {
               {t("appHeader.home")}
             </NavLink>
             <NavLink
-              className="nav-link"
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active-nav" : ""}`
+              }
               to="/project"
               onClick={handleNavLinkClick}
             >
               {t("appHeader.project")}
             </NavLink>
             <NavLink
-              className="nav-link"
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active-nav" : ""}`
+              }
               to="/about"
               onClick={handleNavLinkClick}
             >
