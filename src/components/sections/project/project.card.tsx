@@ -3,6 +3,8 @@ import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
+import "./project.card.scss";
+import { memo } from "react";
 
 interface IProps {
   imgPath: string;
@@ -13,45 +15,42 @@ interface IProps {
   };
   githubLink: string;
   demoLink: string;
+  id: number;
 }
 
 function ProjectCard(props: IProps) {
   const { i18n } = useTranslation();
   const currentLanguage = i18n.language;
   return (
-    <Card className="project-card-view">
-      <Card.Img
-        variant="top"
-        src={props.imgPath}
-        alt="card-img"
-        style={{ maxHeight: 215 }}
-      />
-      <Card.Body className="d-flex flex-column">
-        <Card.Title>{props.title}</Card.Title>
-        <div className="d-flex flex-column justify-content-between h-100">
-          <Card.Text style={{ textAlign: "justify" }}>
-            {currentLanguage === "vi"
-              ? props.description.vi
-              : props.description.en}
-          </Card.Text>
-          <div>
-            <Button variant="primary" href={props.githubLink} target="_blank">
-              <BsGithub /> &nbsp; GitHub
+    <Card className="project-card-view shadow-sm h-100 transition-all">
+      <div className="card-img-wrapper">
+        <Card.Img
+          variant="top"
+          src={props.imgPath}
+          alt={props.title}
+          className="project-image"
+        />
+        <div className="card-img-overlay">
+          <div className="overlay-buttons">
+            <Button variant="light" href={props.githubLink} target="_blank">
+              <BsGithub /> Code
             </Button>
-
-            <Button
-              variant="primary"
-              href={props.demoLink}
-              target="_blank"
-              style={{ marginLeft: "10px" }}
-            >
-              <CgWebsite /> &nbsp;
-              {"Demo"}
+            <Button variant="primary" href={props.demoLink} target="_blank">
+              <CgWebsite /> Demo
             </Button>
           </div>
         </div>
+      </div>
+      <Card.Body>
+        <Card.Title>{props.title}</Card.Title>
+        <Card.Text>
+          {currentLanguage === "vi"
+            ? props.description.vi
+            : props.description.en}
+        </Card.Text>
       </Card.Body>
     </Card>
   );
 }
-export default ProjectCard;
+
+export default memo(ProjectCard);

@@ -50,7 +50,7 @@ const HeroLeft = (props: IProps) => {
           github={APP_DATA.GITHUB_URL}
         />
       </div>
-      <div className="d-md-flex d-none gap-4">
+      <div className="d-flex flex-column flex-md-row gap-3 gap-md-4 mt-4">
         <ResizeButton
           onClick={props.scrollToExperienceSection}
           btnText={t("heroSection.exp")}
@@ -59,12 +59,16 @@ const HeroLeft = (props: IProps) => {
             background: "unset",
             border: "1px solid var(--border-hero-right)",
             color: "var(--text-white-1)",
+            width: "auto",
           }}
         />
         <ResizeButton
           btnText={t("heroSection.cv")}
           btnIcons={<MdFileDownload />}
           onClick={handleDownloadCV}
+          btnStyle={{
+            width: "auto",
+          }}
         />
       </div>
     </div>

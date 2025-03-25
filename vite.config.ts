@@ -19,8 +19,19 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+          ui: ["react-bootstrap", "framer-motion"],
+          i18n: [
+            "i18next",
+            "react-i18next",
+            "i18next-browser-languagedetector",
+            "i18next-http-backend",
+          ],
+        },
       },
     },
+    cssCodeSplit: true,
+    chunkSizeWarningLimit: 1000,
   },
 });

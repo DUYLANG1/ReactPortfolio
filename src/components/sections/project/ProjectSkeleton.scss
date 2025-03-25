@@ -1,0 +1,42 @@
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.skeleton-img,
+.skeleton-title,
+.skeleton-text,
+.skeleton-button {
+  background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+  background-size: 800px 104px;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.skeleton-img {
+  height: 200px;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.skeleton-title {
+  height: 24px;
+  margin-bottom: 1rem;
+  width: 80%;
+  border-radius: 4px;
+}
+
+.skeleton-text {
+  height: 16px;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.skeleton-button {
+  height: 36px;
+  width: 90px;
+  border-radius: 4px;
+}

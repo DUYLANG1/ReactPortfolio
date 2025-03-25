@@ -4,8 +4,8 @@
   background-color: var(--background);
   padding: 0;
   transition: all 0.3s ease-in-out;
-  //   position: relative;
   z-index: 100;
+
   &.sticky {
     position: fixed;
     top: 0;
@@ -20,12 +20,20 @@
       color: var(--brand-green);
     }
   }
+
   .nav-link {
     color: var(--text-color);
-    transition: color 0.3s ease-in-out;
-    &:hover,
+    transition: color 0.2s ease;
+    padding: 8px 15px;
+    margin: 0 5px;
+
+    &:hover {
+      color: #4e5e54 !important;
+    }
+
     &.active {
-      color: var(--brand-red);
+      color: #4e5e54 !important;
+      font-weight: 500;
     }
   }
 
@@ -34,5 +42,21 @@
     .navbar-toggler-icon {
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
+  }
+}
+
+.active-nav {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background-color: #4e5e54;
+    border-radius: 3px;
   }
 }
