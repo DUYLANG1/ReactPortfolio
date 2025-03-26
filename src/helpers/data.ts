@@ -5,7 +5,6 @@ export const APP_DATA = {
   GMAIL_URL:
     "https://mail.google.com/mail/u/0/#inbox?compose=CllgCJlFDFNWNWNwBlRnVTCmzRjrrhjHlTxQQdjhNQTMXmqrlFtprfTpVRWXCRpvkRQmWcvGwjq",
   GITHUB_URL: "https://github.com/DUYLANG1?tab=repositories",
-  FACEBOOK_URL: "https://www.facebook.com/duylang123/",
 };
 
 export const EXPERIENCES = [

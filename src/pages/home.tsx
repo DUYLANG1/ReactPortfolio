@@ -2,12 +2,12 @@ import { Col, Container, Row } from "react-bootstrap";
 import HeroLeft from "components/sections/hero/hero.left";
 import HeroRight from "components/sections/hero/hero.right";
 import { MdFileDownload } from "react-icons/md";
-import Introduction from "components/sections/introduction";
+import Introduction from "@/components/sections/introduction/introduction";
 import ResizeButton from "components/sections/resize.button";
 import { useTranslation } from "react-i18next";
 import Divider from "components/sections/divider";
-import Experience from "components/sections/experience";
-import Skill from "components/sections/skill";
+import Experience from "@/components/sections/experience/experience";
+import Skill from "@/components/sections/skill/skill";
 import { useRef } from "react";
 import PageTransition from "components/common/PageTransition";
 
@@ -26,7 +26,6 @@ const HomePage = () => {
   return (
     <PageTransition>
       <div className="homepage-screen">
-        <div className="homepage-hero-background"></div>
         <section className="mt-md-7 mt-2">
           <Container style={{ position: "relative" }}>
             <Row>

@@ -1,9 +1,9 @@
 import { Col, Row } from "react-bootstrap";
-import AnimationLottie from "@/components/share/animation-lottie";
+import AnimationLottie from "@/components/common/animation-lottie";
 import codingJSON from "assets/lottie/coding.json";
 import { DEVELOPMENT_LOTTIE } from "assets/lottie/string/development";
 import { CONTACT_LOTTIE } from "assets/lottie/string/contact";
-import GlowCard from "components/share/glow-card";
+import GlowCard from "@/components/common/glow-card";
 import { FaGraduationCap } from "react-icons/fa6";
 import Divider from "components/sections/divider";
 import { APP_DATA } from "helpers/data";
@@ -107,7 +107,6 @@ const About = () => {
             linkedin={APP_DATA.LINKEDIN_URL}
             gmail={APP_DATA.GMAIL_URL}
             github={APP_DATA.GITHUB_URL}
-            facebook={APP_DATA.FACEBOOK_URL}
           />
         </Col>
         <Col
