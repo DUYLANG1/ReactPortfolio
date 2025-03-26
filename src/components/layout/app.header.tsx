@@ -67,6 +67,7 @@ function AppHeader() {
       expanded={expanded}
       onToggle={setExpanded}
       ref={navbarRef}
+      data-bs-theme={theme} // Add this line
     >
       <Container>
         <Link className="navbar-brand" to="/" onClick={handleBrandClick}>

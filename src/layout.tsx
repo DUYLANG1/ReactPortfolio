@@ -6,8 +6,8 @@ import ScrollProgress from "./components/layout/ScrollProgress";
 function Layout() {
   return (
     <div>
-      <ScrollProgress />
       <AppHeader />
+      <ScrollProgress />
       <main style={{ minHeight: "80vh" }}>
         <Outlet />
       </main>

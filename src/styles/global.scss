@@ -39,7 +39,7 @@ body {
 }
 
 .bg-body-tertiary {
-  background-color: var(--background-body-tertiary) !important;
+  background-color: var(--background-body-tertiary);
 }
 
 .text-pink-100 {
@@ -124,21 +124,21 @@ body {
 }
 
 .project-card {
-  padding-top: 50px !important;
-  padding-bottom: 50px !important;
-  padding-left: 25px !important;
-  padding-right: 25px !important;
-  height: auto !important;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
+  height: auto;
   cursor: pointer;
 }
 
 .project-card-view {
   box-shadow: 0 3px 3px 3px var(--border-hero-right);
   color: var(--text-white);
-  background-color: transparent !important;
-  opacity: 0.9 !important;
-  transition: all 0.5s ease 0s !important;
-  height: 100% !important;
+  background-color: transparent;
+  opacity: 0.9;
+  transition: all 0.5s ease 0s;
+  height: 100%;
 
   &:hover {
     border-color: var(--brand-social);
@@ -146,14 +146,14 @@ body {
 }
 
 .blog-card {
-  padding-top: 50px !important;
-  padding-bottom: 50px !important;
-  padding-left: 25px !important;
-  padding-right: 25px !important;
-  height: auto !important;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
+  height: auto;
 }
 
-.nav-link.hover-effect {
+.nav-link {
   position: relative;
   transition: all 0.3s ease;
 
@@ -169,7 +169,7 @@ body {
   }
 
   &:hover {
-    color: var(--brand-green, #20c997) !important;
+    color: var(--brand-green, #20c997);
 
     &::before {
       width: 100%;
@@ -177,7 +177,7 @@ body {
   }
 
   &.active {
-    color: var(--brand-green, #20c997) !important;
+    color: var(--brand-green, #20c997);
 
     &::before {
       width: 100%;
