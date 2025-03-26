@@ -2,22 +2,20 @@ import { useEffect, useState, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCurrentApp } from "components/context/app.context";
 import { useTranslation } from "react-i18next";
 import { NavDropdown } from "react-bootstrap";
 import viFlag from "assets/svg/language/vi.svg";
 import enFlag from "assets/svg/language/en.svg";
-import "./app.header.scss"; // Import SCSS
+import "./app.header.scss";
 import { MdOutlineLightMode, MdNightlight } from "react-icons/md";
-
-type ThemeContextType = "light" | "dark";
+import CustomNavLink from "components/common/CustomNavLink";
 
 function AppHeader() {
   const { theme, setTheme } = useCurrentApp();
   const { t, i18n } = useTranslation();
-  const [isSticky, setIsSticky] = useState(false); // State for sticky behavior
-  const location = useLocation();
+  const [isSticky, setIsSticky] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const navbarRef = useRef(null);
 
@@ -29,11 +27,11 @@ function AppHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleMode = (mode: ThemeContextType) => {
+  const handleMode = (mode: "light" | "dark") => {
     localStorage.setItem("theme", mode);
     document.documentElement.setAttribute("data-bs-theme", mode);
     setTheme(mode);
-    setExpanded(false); // Close navbar when theme is changed
+    setExpanded(false);
   };
 
   const renderFlag = (language: string) => (
@@ -44,20 +42,11 @@ function AppHeader() {
     />
   );
 
-  const handleBrandClick = () => {
-    if (location.pathname === "/") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-    setExpanded(false); // Close navbar when brand is clicked
-  };
-
-  const handleNavLinkClick = () => {
-    setExpanded(false); // Close navbar when a nav link is clicked
-  };
+  const closeNavbar = () => setExpanded(false);
 
   const handleLanguageChange = (lang: string) => {
     i18n.changeLanguage(lang);
-    setExpanded(false); // Close navbar when language is changed
+    closeNavbar();
   };
 
   return (
@@ -67,42 +56,24 @@ function AppHeader() {
       expanded={expanded}
       onToggle={setExpanded}
       ref={navbarRef}
-      data-bs-theme={theme} // Add this line
+      data-bs-theme={theme}
     >
       <Container>
-        <Link className="navbar-brand" to="/" onClick={handleBrandClick}>
+        <Link className="navbar-brand" to="/" onClick={closeNavbar}>
           <span className="brand-green">{t("appHeader.brand")}</span>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavLink
-              className={({ isActive }) =>
-                `nav-link ${isActive ? "active-nav" : ""}`
-              }
-              to="/"
-              onClick={handleNavLinkClick}
-            >
+            <CustomNavLink to="/" onClick={closeNavbar}>
               {t("appHeader.home")}
-            </NavLink>
-            <NavLink
-              className={({ isActive }) =>
-                `nav-link ${isActive ? "active-nav" : ""}`
-              }
-              to="/project"
-              onClick={handleNavLinkClick}
-            >
+            </CustomNavLink>
+            <CustomNavLink to="/project" onClick={closeNavbar}>
               {t("appHeader.project")}
-            </NavLink>
-            <NavLink
-              className={({ isActive }) =>
-                `nav-link ${isActive ? "active-nav" : ""}`
-              }
-              to="/about"
-              onClick={handleNavLinkClick}
-            >
+            </CustomNavLink>
+            <CustomNavLink to="/about" onClick={closeNavbar}>
               {t("appHeader.about")}
-            </NavLink>
+            </CustomNavLink>
           </Nav>
           <Nav className="ms-auto">
             <div className="nav-link" style={{ cursor: "pointer" }}>

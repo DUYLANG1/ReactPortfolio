@@ -123,6 +123,19 @@ body {
   display: none;
 }
 
+// For dropdown items (child tabs) when active/selected:
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--brand-green); // Use your brand green variable
+  color: #fff; // Use white for text contrast
+}
+
+.tab-child.active,
+.tab-child:active {
+  background-color: var(--brand-green);
+  color: #fff;
+}
+
 .project-card {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -155,8 +168,21 @@ body {
 
 .nav-link {
   position: relative;
-  transition: all 0.3s ease;
+  padding: 8px 15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
+  &:hover,
+  &:focus {
+    background-color: var(--brand-green, #20c997);
+    color: #fff;
+  }
+
+  &.active {
+    background-color: var(--brand-green, #20c997);
+    color: #fff;
+  }
+
+  // If you still want the underline animation, you can keep or adjust its style:
   &::before {
     content: "";
     position: absolute;
@@ -164,25 +190,29 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--brand-green, #20c997);
+    background-color: transparent; // remove the underline when active/focused
     transition: width 0.3s ease;
   }
 
-  &:hover {
-    color: var(--brand-green, #20c997);
-
-    &::before {
-      width: 100%;
-    }
+  &:hover::before,
+  &:focus::before,
+  &.active::before {
+    width: 0; // disable underline when background highlight is applied
   }
+}
 
-  &.active {
-    color: var(--brand-green, #20c997);
+// For dropdown items (child tabs), already defined:
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--brand-green, #20c997);
+  color: #fff;
+}
 
-    &::before {
-      width: 100%;
-    }
-  }
+// Similarly, if you have any other nav child element:
+.tab-child.active,
+.tab-child:active {
+  background-color: var(--brand-green, #20c997);
+  color: #fff;
 }
 
 // Add responsive typography
