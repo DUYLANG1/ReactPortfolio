@@ -139,13 +139,15 @@ body {
 // For dropdown items (child tabs) when active/selected:
 .dropdown-item.active,
 .dropdown-item:active {
-  background-color: var(--brand-green); // Use your brand green variable
+  background-color: var(
+    --brand-social
+  ); // Use your brand social color for consistency
   color: #fff; // Use white for text contrast
 }
 
 .tab-child.active,
 .tab-child:active {
-  background-color: var(--brand-green);
+  background-color: var(--brand-social);
   color: #fff;
 }
 
@@ -186,12 +188,12 @@ body {
 
   &:hover,
   &:focus {
-    background-color: var(--brand-green, #20c997);
+    background-color: var(--brand-social);
     color: #fff;
   }
 
   &.active {
-    background-color: var(--brand-green, #20c997);
+    background-color: var(--brand-social);
     color: #fff;
   }
 
@@ -217,14 +219,14 @@ body {
 // For dropdown items (child tabs), already defined:
 .dropdown-item.active,
 .dropdown-item:active {
-  background-color: var(--brand-green, #20c997);
+  background-color: var(--brand-social);
   color: #fff;
 }
 
 // Similarly, if you have any other nav child element:
 .tab-child.active,
 .tab-child:active {
-  background-color: var(--brand-green, #20c997);
+  background-color: var(--brand-social);
   color: #fff;
 }
 
