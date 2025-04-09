@@ -21,7 +21,7 @@ function AppHeader() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY >= 40);
+      setIsSticky(window.scrollY >= 100);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
