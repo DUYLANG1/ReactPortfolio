@@ -1,4 +1,4 @@
-import reactUltimateImg from "assets/project/react-ultimate.png";
+import NextJsImage from "assets/svg/skills/nextjs.svg";
 
 export const APP_DATA = {
   LINKEDIN_URL: "https://www.linkedin.com/in/vu-lang-887166224/",
@@ -44,13 +44,13 @@ export const EXPERIENCES = [
 export const PROJECTS = [
   {
     id: 1,
-    imgPath: reactUltimateImg,
-    title: "Book selling",
+    imgPath: NextJsImage,
+    title: "My Local Swapping skills",
     description: {
-      en: "Where I working to build a web selling books.",
-      vi: "Xây dựng website bán sách.",
+      en: "My website for people to swap skills with each other. Front NextJS, Backend NestJS",
+      vi: "Website để mọi người tìm đến và trao đổi kỹ năng với nhau. Frontend NextJS, Backend NestJS",
     },
-    githubLink: "https://github.com/DUYLANG1/ReactTestFresh",
+    githubLink: "https://github.com/DUYLANG1/LSS-FRONTEND",
     demoLink: "#",
   },
 ];
