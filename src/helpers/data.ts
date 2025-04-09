@@ -1,4 +1,4 @@
-import NextJsImage from "assets/svg/skills/nextjs.svg";
+import NextJsImage from "assets/svg/skills/nextJS.svg";
 
 export const APP_DATA = {
   LINKEDIN_URL: "https://www.linkedin.com/in/vu-lang-887166224/",
@@ -47,8 +47,8 @@ export const PROJECTS = [
     imgPath: NextJsImage,
     title: "My Local Swapping skills",
     description: {
-      en: "My website for people to swap skills with each other. Front NextJS, Backend NestJS",
-      vi: "Website để mọi người tìm đến và trao đổi kỹ năng với nhau. Frontend NextJS, Backend NestJS",
+      en: "My website for people to swap skills with each other.",
+      vi: "Website để mọi người tìm đến và trao đổi kỹ năng với nhau.",
     },
     githubLink: "https://github.com/DUYLANG1/LSS-FRONTEND",
     demoLink: "#",
