@@ -540,7 +540,6 @@
     border-radius: 20px;
     background: var(--glow-card-background);
     border: 2px solid transparent;
-    margin: 1rem;
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -680,18 +679,13 @@
   }
 
   .contact-section {
-    .contact-animation-container {
-      margin-top: 2rem;
-    }
-
+    // Remove order properties to allow Bootstrap columns to work properly
     .social-media-container {
-      order: 2;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
 
     .contact-animation-container {
-      order: 1;
-      margin-top: 0;
+      margin-top: 1rem;
     }
   }
 

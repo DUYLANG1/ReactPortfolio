@@ -1,4 +1,5 @@
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import { motion } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 interface IProps {
@@ -60,12 +61,23 @@ const AnimationLottie = ({ animationPath, width = "95%" }: IProps) => {
   }
 
   return (
-    <Lottie
-      {...defaultOptions}
-      onError={handleAnimationError}
-      data-testid="animation-lottie"
-      data-width={width}
-    />
+    <motion.div
+      initial={{ x: "-50%", y: "-50%", scale: 0 }}
+      animate={{ x: "0%", y: "0%", scale: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Lottie
+        {...defaultOptions}
+        onError={handleAnimationError}
+        data-testid="animation-lottie"
+        data-width={width}
+      />
+    </motion.div>
   );
 };
 

@@ -69,11 +69,22 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
       role="region"
     >
       <Row className="contact-section">
-        <Col md={6} xs={12} className="social-media-container mt-md-5 mt-3">
-          <h3 id="contact-heading" className="contact-title mb-md-5 mb-2">
+        <Col
+          md={6}
+          xs={6}
+          className="social-media-container mt-md-5 mt-3 d-flex flex-column align-items-center"
+        >
+          <h3
+            id="contact-heading"
+            className="contact-title mb-md-5 mb-2 text-center"
+          >
             {getTranslation("aboutSection.findMe")}
           </h3>
-          <nav aria-label="Social media links" role="navigation">
+          <nav
+            aria-label="Social media links"
+            role="navigation"
+            className="d-flex justify-content-center"
+          >
             <SocialMedia
               linkedin={typedAppData.LINKEDIN_URL}
               gmail={typedAppData.GMAIL_URL}
@@ -83,7 +94,7 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
         </Col>
         <Col
           md={6}
-          xs={12}
+          xs={6}
           className="contact-animation-container d-flex flex-column align-items-center justify-content-center"
           onClick={handleContactClickWithEvent}
           onKeyDown={handleContactKeyDown}
