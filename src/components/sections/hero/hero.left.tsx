@@ -22,7 +22,7 @@ const HeroLeft = memo(({ scrollToExperienceSection }: IProps) => {
 
   const handleDownloadCV = useCallback(() => {
     openInNewTab(
-      "https://drive.google.com/file/d/1Gew4CC4LWNtWG33d4AfbwYbvHMxJutLc/view"
+      "https://drive.google.com/file/d/1MQDW9ag2HSlDSEbsO7al2lim4AWwakki/view?usp=sharing"
     );
   }, [openInNewTab]);
 

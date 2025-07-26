@@ -1,6 +1,5 @@
 import {
   createContext,
-  useContext,
   useEffect,
   useState,
   useCallback,
@@ -15,7 +14,7 @@ interface IAppContext {
   setTheme: (theme: ThemeContextType) => void;
 }
 
-const AppContext = createContext<IAppContext | null>(null);
+export const AppContext = createContext<IAppContext | null>(null);
 
 export const AppContextProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<ThemeContextType>(() => {
@@ -63,14 +62,4 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export const useCurrentApp = () => {
-  const currentAppContext = useContext(AppContext);
 
-  if (!currentAppContext) {
-    throw new Error(
-      "useCurrentApp has to be used within <AppContext.Provider>"
-    );
-  }
-
-  return currentAppContext;
-};

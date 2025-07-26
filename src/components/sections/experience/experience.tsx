@@ -5,7 +5,7 @@ import { EXPERIENCES } from "helpers/data";
 import GlowCard from "@/components/common/glow-card";
 import { BsPersonWorkspace } from "react-icons/bs";
 import blurImg from "assets/blur-23.svg";
-import { useCurrentApp } from "components/context/app.context";
+import { useCurrentApp } from "components/context/useCurrentApp";
 import { useTranslation } from "react-i18next";
 
 type TLanguage = "vi" | "en";
