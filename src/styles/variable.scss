@@ -12,9 +12,9 @@ $light-theme: (
   brand-name-200: black,
   brand-social: #4762f8,
 
-  border-hero-right: #eee,
-  background-hero-right: "linear-gradient(to right, #fff, #eee)",
-  border-top-hero-right:
+  border-header-right: #eee,
+  background-header-right: "linear-gradient(to right, #fff, #eee)",
+  border-top-header-right:
     "linear-gradient(to right, transparent, #fff, #fff, transparent)",
 
   text-red-500: #f96f73,
@@ -44,9 +44,9 @@ $dark-theme: (
   brand-name-200: #ec4899,
   brand-social: #ec4899,
 
-  border-hero-right: #1b2c68a0,
-  background-hero-right: "linear-gradient(to right, #0d1224, #0a0d37)",
-  border-top-hero-right:
+  border-header-right: #1b2c68a0,
+  background-header-right: "linear-gradient(to right, #0d1224, #0a0d37)",
+  border-top-header-right:
     "linear-gradient(to right, transparent, #ec4899, #8b5cf6, transparent)",
 
   text-red-500: #f96f73,

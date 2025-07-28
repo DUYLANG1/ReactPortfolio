@@ -104,7 +104,7 @@ body {
 
 .divider {
   height: 1px;
-  border-top: 1px solid var(--border-hero-right);
+  border-top: 1px solid var(--border-header-right);
 }
 
 /* --------- */
@@ -161,7 +161,7 @@ body {
 }
 
 .project-card-view {
-  box-shadow: 0 3px 3px 3px var(--border-hero-right);
+  box-shadow: 0 3px 3px 3px var(--border-header-right);
   color: var(--text-white);
   background-color: transparent;
   opacity: 0.9;

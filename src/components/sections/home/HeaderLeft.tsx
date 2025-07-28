@@ -1,8 +1,8 @@
 import Typewriter from "typewriter-effect";
-import SocialMedia from "components/sections/social.media";
+import SocialMedia from "@/components/sections/SocialMedia";
 import { useTranslation } from "react-i18next";
-import "./hero.scss";
-import ResizeButton from "components/sections/resize.button";
+import "./Header.scss";
+import ResizeButton from "@/components/sections/ResizeButton";
 import { APP_DATA } from "helpers/data";
 import { MdFileDownload } from "react-icons/md";
 import { AiFillFire } from "react-icons/ai";
@@ -12,7 +12,7 @@ interface IProps {
   scrollToExperienceSection: () => void;
 }
 
-const HeroLeft = memo(({ scrollToExperienceSection }: IProps) => {
+const HeaderLeft = memo(({ scrollToExperienceSection }: IProps) => {
   const { t } = useTranslation();
 
   const openInNewTab = useCallback((url: string): void => {
@@ -27,14 +27,14 @@ const HeroLeft = memo(({ scrollToExperienceSection }: IProps) => {
   }, [openInNewTab]);
 
   return (
-    <div className="hero-left">
+    <div className="header-left">
       <h3>
         Hi There!{" "}
         <span className="wave" role="img" aria-labelledby="wave">
           👋🏻
         </span>
       </h3>
-      <h3 className="hero-title">
+      <h3 className="header-title">
         I'M &nbsp;
         <strong className="brand-red">{t("appHeader.brand")}</strong>
       </h3>
@@ -57,17 +57,17 @@ const HeroLeft = memo(({ scrollToExperienceSection }: IProps) => {
       <div className="d-flex flex-column flex-md-row gap-3 gap-md-4 mt-4">
         <ResizeButton
           onClick={scrollToExperienceSection}
-          btnText={t("heroSection.exp")}
+          btnText={t("headerSection.exp")}
           btnIcons={<AiFillFire style={{ color: "orange" }} />}
           btnStyle={{
             background: "unset",
-            border: "1px solid var(--border-hero-right)",
+            border: "1px solid var(--border-header-right)",
             color: "var(--text-white-1)",
             width: "auto",
           }}
         />
         <ResizeButton
-          btnText={t("heroSection.cv")}
+          btnText={t("headerSection.cv")}
           btnIcons={<MdFileDownload />}
           onClick={handleDownloadCV}
           btnStyle={{
@@ -79,4 +79,4 @@ const HeroLeft = memo(({ scrollToExperienceSection }: IProps) => {
   );
 });
 
-export default HeroLeft;
+export default HeaderLeft;

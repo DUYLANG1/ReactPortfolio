@@ -2,8 +2,8 @@ import React, { useCallback, useMemo } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
-import AnimationLottie from "@/components/common/animation-lottie";
-import SocialMedia from "components/sections/social.media";
+import AnimationLottie from "@/components/common/AnimationLottie";
+import SocialMedia from "@/components/sections/SocialMedia";
 import {
   ContactSectionProps,
   ContactClickHandler,

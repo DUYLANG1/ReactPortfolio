@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import Layout from "@/layout";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import LoadingSpinner from "components/common/LoadingSpinner";
-import { AppContextProvider } from "components/context/app.context";
+import { AppContextProvider } from "@/components/context/AppContent";
 import ErrorBoundary from "components/common/ErrorBoundary";
 
 // Lazy load pages

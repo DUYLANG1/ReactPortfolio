@@ -2,8 +2,8 @@ import React, { useMemo } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
-import AnimationLottie from "@/components/common/animation-lottie";
-import GlowCard from "@/components/common/glow-card";
+import AnimationLottie from "@/components/common/AnimationLottie";
+import GlowCard from "@/components/common/GlowCard";
 import {
   EducationSectionProps,
   ParsedAnimationData,

@@ -1,6 +1,6 @@
 import React from "react";
 
-import AnimationLottie from "@/components/common/animation-lottie";
+import AnimationLottie from "@/components/common/AnimationLottie";
 import {
   AboutAnimationProps,
   LottieAnimationData,

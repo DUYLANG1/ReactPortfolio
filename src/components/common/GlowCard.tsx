@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "./glow-card.scss";
+import "./GlowCard.scss";
 
 interface IProps {
   children: React.ReactNode;

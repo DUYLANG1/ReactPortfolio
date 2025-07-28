@@ -1,12 +1,12 @@
 import { Col, Container, Row } from "react-bootstrap";
-import HeroLeft from "components/sections/hero/hero.left";
-import HeroRight from "components/sections/hero/hero.right";
+import HeaderLeft from "@/components/sections/home/HeaderLeft";
+import HeaderRight from "@/components/sections/home/HeaderRight";
 import { MdFileDownload } from "react-icons/md";
 import Introduction from "@/components/sections/introduction/introduction";
-import ResizeButton from "components/sections/resize.button";
+import ResizeButton from "@/components/sections/ResizeButton";
 import { useTranslation } from "react-i18next";
-import Divider from "components/sections/divider";
-import Experience from "@/components/sections/experience/experience";
+import Divider from "@/components/sections/Divider";
+import Experience from "@/components/sections/experience/Experience";
 import Skill from "@/components/sections/skill/skill";
 import { useRef } from "react";
 import PageTransition from "components/common/PageTransition";
@@ -30,19 +30,19 @@ const HomePage = () => {
           <Container style={{ position: "relative" }}>
             <Row>
               <Col className="d-none d-md-block" md={6}>
-                <HeroLeft
+                <HeaderLeft
                   scrollToExperienceSection={scrollToExperienceSection}
                 />
               </Col>
               <Col md={6}>
-                <HeroRight />
+                <HeaderRight />
               </Col>
               <Col
                 xs={12}
                 className="d-md-none d-flex mt-4 justify-content-center"
               >
                 <ResizeButton
-                  btnText={t("heroSection.cv")}
+                  btnText={t("headerSection.cv")}
                   btnIcons={<MdFileDownload />}
                 />
               </Col>

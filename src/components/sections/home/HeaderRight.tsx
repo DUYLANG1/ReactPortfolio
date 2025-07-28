@@ -1,8 +1,8 @@
-import "./hero.scss";
+import "./Header.scss";
 
-const HeroRight = () => {
+const HeaderRight = () => {
   return (
-    <div className="hero-right">
+    <div className="header-right">
       <div className="border-top"></div>
       <div className="first">
         <div className="circle bg-first"></div>
@@ -96,4 +96,4 @@ const HeroRight = () => {
   );
 };
 
-export default HeroRight;
+export default HeaderRight;

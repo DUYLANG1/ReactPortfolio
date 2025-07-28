@@ -48,7 +48,7 @@ const AnimationLottie = ({ animationPath, width = "95%" }: IProps) => {
           justifyContent: "center",
           background: "var(--glow-card-background)",
           borderRadius: "8px",
-          border: "1px solid var(--border-hero-right)",
+          border: "1px solid var(--border-header-right)",
           color: "var(--text-white)",
           fontSize: "0.9rem",
           opacity: 0.7,
