@@ -3,7 +3,7 @@ import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
 import AnimationLottie from "@/components/common/AnimationLottie";
-import SocialMedia from "@/components/sections/SocialMedia";
+import SocialMedia from "@/components/common/SocialMedia";
 import {
   ContactSectionProps,
   ContactClickHandler,

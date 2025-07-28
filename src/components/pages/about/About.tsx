@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 
-import Divider from "@/components/sections/Divider";
+import Divider from "@/components/common/Divider";
 import {
   AboutIntro,
   AboutAnimation,

@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
-import "./project.card.scss";
+import "./ProjectCard.scss";
 import { memo } from "react";
 
 interface IProps {

@@ -1,7 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import Tilt from "react-parallax-tilt";
 import avatarImg from "assets/avatar.svg";
-import "./introduction.scss";
+import "./Introduction.scss";
 import { useTranslation } from "react-i18next";
 
 const Introduction = () => {

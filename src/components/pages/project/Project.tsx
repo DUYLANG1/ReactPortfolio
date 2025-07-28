@@ -1,5 +1,5 @@
 import { Col, Row } from "react-bootstrap";
-import ProjectCard from "./project.card";
+import ProjectCard from "./ProjectCard";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect, memo } from "react";
 import ProjectSkeleton from "./ProjectSkeleton";

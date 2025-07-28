@@ -1,13 +1,13 @@
 import { Col, Container, Row } from "react-bootstrap";
-import HeaderLeft from "@/components/sections/home/HeaderLeft";
-import HeaderRight from "@/components/sections/home/HeaderRight";
+import HeaderLeft from "@/components/pages/home/HeaderLeft";
+import HeaderRight from "@/components/pages/home/HeaderRight";
 import { MdFileDownload } from "react-icons/md";
-import Introduction from "@/components/sections/introduction/introduction";
-import ResizeButton from "@/components/sections/ResizeButton";
+import Introduction from "@/components/pages/home/Introduction";
+import ResizeButton from "@/components/common/ResizeButton";
 import { useTranslation } from "react-i18next";
-import Divider from "@/components/sections/Divider";
-import Experience from "@/components/sections/experience/Experience";
-import Skill from "@/components/sections/skill/skill";
+import Divider from "@/components/common/Divider";
+import Experience from "@/components/pages/home/Experience";
+import Skill from "@/components/pages/home/Skill";
 import { useRef } from "react";
 import PageTransition from "components/common/PageTransition";
 
