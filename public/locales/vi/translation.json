@@ -11,8 +11,11 @@
     "cv": "Tải Resume"
   },
   "introSection": {
-    "about": "Giới thiệu",
     "and": "và",
+    "title": {
+      "highlight": "GIỚI THIỆU",
+      "main": "BẢN THÂN"
+    },
     "heading1": "Luôn luôn giữ vững tinh thần học hỏi trong nhiều khía cạnh, đặc biệt là kỹ năng lập trình 🤷‍♂️",
     "heading2": "Thành thạo",
     "framework": "các frameworks liên quan",

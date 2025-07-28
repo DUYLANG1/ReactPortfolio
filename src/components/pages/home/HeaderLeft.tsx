@@ -1,7 +1,7 @@
 import Typewriter from "typewriter-effect";
 import SocialMedia from "@/components/common/SocialMedia";
 import { useTranslation } from "react-i18next";
-import "./Header.scss";
+import "./HeaderLeft.scss";
 import ResizeButton from "@/components/common/ResizeButton";
 import { APP_DATA } from "helpers/data";
 import { MdFileDownload } from "react-icons/md";

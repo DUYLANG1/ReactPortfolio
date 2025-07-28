@@ -1,0 +1,49 @@
+.header-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 20px 0;
+
+  h3 {
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+
+  .wave {
+    animation: wave 2s infinite;
+    transform-origin: 70% 70%;
+  }
+
+  @keyframes wave {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+.header-title {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}

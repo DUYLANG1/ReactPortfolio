@@ -11,8 +11,11 @@
     "cv": "Get Resume"
   },
   "introSection": {
-    "about": "About me",
     "and": "and",
+    "title": {
+      "highlight": "A LITTLE BIT",
+      "main": "ABOUT MYSELF"
+    },
     "heading1": "I have a strong passion for learning and exploring various fields, especially programming 🤷‍♂️",
     "heading2": "I am fluent in ",
     "framework": "related frameworks",

@@ -5,7 +5,7 @@ import "./Introduction.scss";
 import { useTranslation } from "react-i18next";
 
 const Introduction = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <section
@@ -15,16 +15,10 @@ const Introduction = () => {
       <Row>
         <Col xs={12} md={9}>
           <h2 className="text-center text-md-start">
-            {i18n.resolvedLanguage === "en" ? (
-              <>
-                <span className="text-pink-100"> A LITTLE BIT </span> ABOUT
-                MYSELF
-              </>
-            ) : (
-              <>
-                <span className="text-pink-100">GIỚI THIỆU</span> BẢN THÂN
-              </>
-            )}
+            <span className="text-pink-100">
+              {t("introSection.title.highlight")}
+            </span>{" "}
+            {t("introSection.title.main")}
           </h2>
           <br />
           <p>
@@ -62,10 +56,6 @@ const Introduction = () => {
           </Tilt>
         </Col>
       </Row>
-      <div className="about-container d-none d-md-flex">
-        <span className="about-label">{t("introSection.about")}</span>
-        <span className="vertical-line"></span>
-      </div>
     </section>
   );
 };
