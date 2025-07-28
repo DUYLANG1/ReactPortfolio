@@ -1,19 +1,19 @@
 import { lazy, Suspense } from "react";
-import Layout from "./Layout";
+import Layout from "@/Layout";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import LoadingSpinner from "components/common/LoadingSpinner";
-import { AppContextProvider } from "./components/context/AppContent";
+import { AppContextProvider } from "@/components/context/AppContent";
 import ErrorBoundary from "components/common/ErrorBoundary";
 
 // Lazy load pages
 const HomePage = lazy(() =>
-  import("./pages/Home").then((module) => ({ default: module.default }))
+  import("@/pages/Home").then((module) => ({ default: module.default }))
 );
 const ProjectPage = lazy(() =>
-  import("./pages/Project").then((module) => ({ default: module.default }))
+  import("@/pages/Project").then((module) => ({ default: module.default }))
 );
 const AboutPage = lazy(() =>
-  import("./pages/About").then((module) => ({ default: module.default }))
+  import("@/pages/About").then((module) => ({ default: module.default }))
 );
 
 const router = createBrowserRouter([
