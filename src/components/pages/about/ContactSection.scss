@@ -246,4 +246,22 @@
   @media (max-width: 576px) {
     margin-top: 2rem;
   }
+
+  // Tablet-specific centering improvements
+  @media (min-width: 768px) and (max-width: 991px) {
+    .social-media-container,
+    .contact-animation-container {
+      margin-bottom: 2rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Ensure proper centering on all screen sizes
+  .row {
+    justify-content: center;
+    align-items: stretch;
+  }
 }

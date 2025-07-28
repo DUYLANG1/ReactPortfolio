@@ -71,9 +71,11 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
     >
       <Row className="contact-section">
         <Col
-          md={6}
-          xs={6}
-          className="social-media-container mt-md-5 mt-3 d-flex flex-column align-items-center"
+          lg={6}
+          md={12}
+          sm={12}
+          xs={12}
+          className="social-media-container mt-md-5 mt-3 d-flex flex-column align-items-center justify-content-center"
         >
           <h3
             id="contact-heading"
@@ -94,8 +96,10 @@ const ContactSection: React.FC<ContactSectionProps> = () => {
           </nav>
         </Col>
         <Col
-          md={6}
-          xs={6}
+          lg={6}
+          md={12}
+          sm={12}
+          xs={12}
           className="contact-animation-container d-flex flex-column align-items-center justify-content-center"
           onClick={handleContactClickWithEvent}
           onKeyDown={handleContactKeyDown}
