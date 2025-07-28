@@ -49,9 +49,10 @@ const HeaderLeft = memo(({ scrollToExperienceSection }: IProps) => {
       />
       <div className="mt-md-6 mt-3 mb-md-5 mb-2">
         <SocialMedia
-          linkedin={APP_DATA.LINKEDIN_URL}
-          gmail={APP_DATA.GMAIL_URL}
-          github={APP_DATA.GITHUB_URL}
+          LINKEDIN_URL={APP_DATA.LINKEDIN_URL}
+          GMAIL_URL={APP_DATA.GMAIL_URL}
+          GITHUB_URL={APP_DATA.GITHUB_URL}
+          variant="header"
         />
       </div>
       <div className="d-flex flex-column flex-md-row gap-3 gap-md-4 mt-4">

@@ -1,89 +1,13 @@
-// ContactSection component styles
 .contact-section {
   margin-top: clamp(2rem, 5vw, 4rem);
 
   .social-media-container {
-    margin-top: clamp(1rem, 3vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: clamp(1rem, 3vw, 2rem);
-
-    // Enhanced social media styling
-    .social-media {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-
-      a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: var(--glow-card-background);
-        border: 2px solid var(--border-header-right);
-        color: var(--text-white);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(
-            135deg,
-            var(--brand-name-200),
-            var(--brand-social)
-          );
-          opacity: 0;
-          transition: opacity 0.3s ease;
-          z-index: -1;
-        }
-
-        &:hover {
-          transform: translateY(-4px) scale(1.1);
-          border-color: var(--brand-social);
-          color: #fff;
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-
-          &::before {
-            opacity: 1;
-          }
-        }
-
-        &:focus {
-          outline: 2px solid var(--brand-social);
-          outline-offset: 4px;
-        }
-
-        svg {
-          font-size: 1.2rem;
-          transition: transform 0.3s ease;
-        }
-
-        &:hover svg {
-          transform: scale(1.2);
-        }
-
-        @media (max-width: 576px) {
-          width: 45px;
-          height: 45px;
-
-          svg {
-            font-size: 1.1rem;
-          }
-        }
-      }
-
-      @media (max-width: 576px) {
-        gap: 1rem;
-      }
-    }
+    margin-top: clamp(1rem, 3vw, 3rem);
 
     @media (max-width: 768px) {
       margin-top: 1rem;
@@ -96,7 +20,6 @@
     font-weight: 600;
     font-size: clamp(1.3rem, 3.5vw, 1.8rem);
     position: relative;
-    transition: color 0.3s ease;
 
     &::after {
       content: "";
@@ -118,10 +41,6 @@
     &:hover::after {
       width: 100px;
     }
-
-    @media (max-width: 768px) {
-      margin-bottom: 1.5rem;
-    }
   }
 
   .contact-animation-container {
@@ -134,70 +53,20 @@
     border-radius: 20px;
     background: var(--glow-card-background);
     border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(
-        135deg,
-        var(--brand-name-200) 0%,
-        var(--brand-social) 100%
-      );
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: -1;
-    }
 
     &:hover {
       transform: translateY(-6px) scale(1.02);
       border-color: var(--brand-social);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-
-      &::before {
-        opacity: 0.1;
-      }
     }
 
     &:focus {
       outline: 3px solid var(--brand-social);
       outline-offset: 4px;
-      border-color: var(--brand-social);
-      box-shadow: 0 0 0 2px var(--background-body-primary),
-        0 0 0 5px var(--brand-social);
-    }
-
-    &:focus-visible {
-      outline: 3px solid var(--brand-social);
-      outline-offset: 4px;
-    }
-
-    &:active {
-      transform: translateY(-2px) scale(0.98);
-    }
-
-    // Animation wrapper styling
-    > div:first-child {
-      transition: transform 0.3s ease;
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    &:hover > div:first-child {
-      transform: scale(1.05);
     }
 
     @media (max-width: 768px) {
-      margin: 0.5rem;
-      padding: 1.5rem;
-      margin-top: 1rem;
-
       &:hover {
         transform: translateY(-3px) scale(1.01);
       }
@@ -210,58 +79,10 @@
     font-weight: 600;
     font-size: clamp(1rem, 3vw, 1.2rem);
     color: var(--brand-name-100);
-    transition: all 0.3s ease;
-    position: relative;
-
-    &::after {
-      content: "→";
-      margin-left: 0.5rem;
-      opacity: 0;
-      transform: translateX(-10px);
-      transition: all 0.3s ease;
-    }
+    transition: color 0.3s ease;
 
     .contact-animation-container:hover & {
       color: var(--brand-social);
-
-      &::after {
-        opacity: 1;
-        transform: translateX(0);
-      }
     }
-
-    @media (max-width: 768px) {
-      margin-top: 1rem;
-    }
-  }
-
-  @media (max-width: 1200px) {
-    margin-top: 3rem;
-  }
-
-  @media (max-width: 768px) {
-    margin-top: 2rem;
-  }
-
-  @media (max-width: 576px) {
-    margin-top: 2rem;
-  }
-
-  // Tablet-specific centering improvements
-  @media (min-width: 768px) and (max-width: 991px) {
-    .social-media-container,
-    .contact-animation-container {
-      margin-bottom: 2rem;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  // Ensure proper centering on all screen sizes
-  .row {
-    justify-content: center;
-    align-items: stretch;
   }
 }

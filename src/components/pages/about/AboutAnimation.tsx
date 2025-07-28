@@ -1,20 +1,12 @@
-import React from "react";
-
 import AnimationLottie from "@/components/common/AnimationLottie";
-import {
-  AboutAnimationProps,
-  LottieAnimationData,
-  AnimationWidth,
-} from "./types";
-
 import codingJSON from "assets/lottie/coding.json";
 import "./AboutAnimation.scss";
 
-const AboutAnimation: React.FC<AboutAnimationProps> = ({ width = "80%" }) => {
-  // Type assertion for imported JSON animation data with width validation
-  const typedCodingJSON: LottieAnimationData =
-    codingJSON as LottieAnimationData;
-  const validatedWidth: AnimationWidth = width as AnimationWidth;
+interface AboutAnimationProps {
+  width?: string;
+}
+
+const AboutAnimation = ({ width = "80%" }: AboutAnimationProps) => {
   return (
     <div
       className="about-animation-container"
@@ -25,7 +17,7 @@ const AboutAnimation: React.FC<AboutAnimationProps> = ({ width = "80%" }) => {
       <span id="coding-animation-desc" className="sr-only">
         Decorative animation showing a developer working on code
       </span>
-      <AnimationLottie width={validatedWidth} animationPath={typedCodingJSON} />
+      <AnimationLottie width={width} animationPath={codingJSON} />
     </div>
   );
 };

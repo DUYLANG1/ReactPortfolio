@@ -65,7 +65,7 @@
         transition: all 0.3s ease;
 
         &::before {
-          content: "▸";
+          content: "•";
           position: absolute;
           left: 0;
           color: var(--brand-name-200);

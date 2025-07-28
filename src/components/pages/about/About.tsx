@@ -1,4 +1,3 @@
-import React from "react";
 import { Col, Row } from "react-bootstrap";
 
 import Divider from "@/components/common/Divider";
@@ -8,11 +7,10 @@ import {
   EducationSection,
   ContactSection,
 } from "./index";
-import { AboutProps } from "./types";
 
 import "./About.scss";
 
-const About: React.FC<AboutProps> = () => {
+const About = () => {
   return (
     <main className="about-content" role="main" aria-labelledby="about-heading">
       <section

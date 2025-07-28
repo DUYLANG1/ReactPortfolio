@@ -1,128 +1,61 @@
-import React, { useCallback, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
 import AnimationLottie from "@/components/common/AnimationLottie";
 import SocialMedia from "@/components/common/SocialMedia";
-import {
-  ContactSectionProps,
-  ContactClickHandler,
-  ParsedAnimationData,
-  AppDataUrls,
-  AboutTranslationKey,
-} from "./types";
-
 import { CONTACT_LOTTIE } from "assets/lottie/string/contact";
 import { APP_DATA } from "helpers/data";
 import "./ContactSection.scss";
 
-const ContactSection: React.FC<ContactSectionProps> = () => {
+const ContactSection = () => {
   const { t } = useTranslation();
 
-  // Type-safe translation helper function
-  const getTranslation = (key: AboutTranslationKey): string => {
-    return t(key);
-  };
-
-  // Type assertion for APP_DATA to ensure type safety
-  const typedAppData: AppDataUrls = APP_DATA as AppDataUrls;
-
-  // Memoize contact handler to prevent unnecessary re-renders with proper typing
-  const handleContactClick: ContactClickHandler = useCallback((): void => {
-    window.open(typedAppData.GMAIL_URL, "_blank");
-  }, [typedAppData.GMAIL_URL]);
-
-  // Enhanced click handler with event typing for better type safety
-  const handleContactClickWithEvent = useCallback(
-    (event: React.MouseEvent<HTMLDivElement>): void => {
-      event.preventDefault();
-      handleContactClick();
+  const handleContactClick = useCallback(
+    (event?: React.MouseEvent | React.KeyboardEvent) => {
+      event?.preventDefault();
+      window.open(APP_DATA.GMAIL_URL, "_blank");
     },
-    [handleContactClick]
+    []
   );
 
-  // Keyboard handler for accessibility
-  const handleContactKeyDown = useCallback(
-    (event: React.KeyboardEvent<HTMLDivElement>): void => {
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent) => {
       if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        handleContactClick();
+        handleContactClick(event);
       }
     },
     [handleContactClick]
   );
 
-  // Memoize parsed animation with error handling
-  const contactAnimation: ParsedAnimationData =
-    useMemo((): ParsedAnimationData => {
-      try {
-        return JSON.parse(CONTACT_LOTTIE);
-      } catch (error) {
-        console.warn("Failed to parse contact animation:", error);
-        return {}; // Return empty object as fallback
-      }
-    }, []);
+  const contactAnimation = useMemo(() => {
+    try {
+      return JSON.parse(CONTACT_LOTTIE);
+    } catch {
+      return {};
+    }
+  }, []);
 
   return (
-    <section
-      className="contact-section"
-      aria-labelledby="contact-heading"
-      role="region"
-    >
-      <Row className="contact-section">
-        <Col
-          lg={6}
-          md={12}
-          sm={12}
-          xs={12}
-          className="social-media-container mt-md-5 mt-3 d-flex flex-column align-items-center justify-content-center"
-        >
-          <h3
-            id="contact-heading"
-            className="contact-title mb-md-5 mb-2 text-center"
-          >
-            {getTranslation("aboutSection.findMe")}
+    <section className="contact-section" aria-labelledby="contact-heading">
+      <Row>
+        <Col lg={6} className="social-media-container">
+          <h3 id="contact-heading" className="contact-title">
+            {t("aboutSection.findMe")}
           </h3>
-          <nav
-            aria-label="Social media links"
-            role="navigation"
-            className="d-flex justify-content-center"
-          >
-            <SocialMedia
-              linkedin={typedAppData.LINKEDIN_URL}
-              gmail={typedAppData.GMAIL_URL}
-              github={typedAppData.GITHUB_URL}
-            />
-          </nav>
+          <SocialMedia {...APP_DATA} variant="contact" />
         </Col>
         <Col
           lg={6}
-          md={12}
-          sm={12}
-          xs={12}
-          className="contact-animation-container d-flex flex-column align-items-center justify-content-center"
-          onClick={handleContactClickWithEvent}
-          onKeyDown={handleContactKeyDown}
+          className="contact-animation-container"
+          onClick={handleContactClick}
+          onKeyDown={handleKeyDown}
           role="button"
           tabIndex={0}
-          aria-label={`${getTranslation(
-            "aboutSection.contactMe"
-          )} - Opens Gmail in new tab`}
-          aria-describedby="contact-animation-desc"
+          aria-label={`${t("aboutSection.contactMe")} - Opens Gmail`}
         >
-          <div
-            role="img"
-            aria-label="Contact animation illustration"
-            aria-describedby="contact-animation-desc"
-          >
-            <span id="contact-animation-desc" className="sr-only">
-              Decorative animation showing communication and contact methods
-            </span>
-            <AnimationLottie width="50%" animationPath={contactAnimation} />
-          </div>
-          <h4 className="contact-cta text-center" aria-hidden="true">
-            {getTranslation("aboutSection.contactMe")}
-          </h4>
+          <AnimationLottie width="50%" animationPath={contactAnimation} />
+          <h4 className="contact-cta">{t("aboutSection.contactMe")}</h4>
         </Col>
       </Row>
     </section>

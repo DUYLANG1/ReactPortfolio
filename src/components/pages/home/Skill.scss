@@ -70,6 +70,23 @@
           margin: 0;
           font-weight: 600;
         }
+
+        .skill-icon-placeholder {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: linear-gradient(
+            135deg,
+            var(--brand-name-200),
+            var(--brand-social)
+          );
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: bold;
+          font-size: 1.2rem;
+        }
       }
     }
   }

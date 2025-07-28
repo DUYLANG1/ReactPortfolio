@@ -1,84 +1,69 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import "./GlowCard.scss";
 
-interface IProps {
+interface GlowCardProps {
   children: React.ReactNode;
   identifier: string;
 }
-const GlowCard = ({ children, identifier }: IProps) => {
-  useEffect(() => {
-    const CONTAINER = document.querySelector(
-      `.glow-container-${identifier}`
-    )! as HTMLElement;
-    const CARDS = document.querySelectorAll(
-      `.glow-card-${identifier}`
-    )! as NodeListOf<HTMLElement>;
 
-    const CONFIG = {
-      proximity: 40,
-      spread: 80,
-      blur: 12,
-      gap: 32,
-      vertical: false,
-      opacity: 0,
-    };
+const GlowCard = ({ children, identifier }: GlowCardProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
 
-    const UPDATE = (event: PointerEvent) => {
-      for (const CARD of CARDS) {
-        const CARD_BOUNDS = CARD.getBoundingClientRect();
+  const updateGlow = useCallback(
+    (event: PointerEvent) => {
+      const container = containerRef.current;
+      if (!container) return;
 
-        if (
-          event?.x > CARD_BOUNDS.left - CONFIG.proximity &&
-          event?.x < CARD_BOUNDS.left + CARD_BOUNDS.width + CONFIG.proximity &&
-          event?.y > CARD_BOUNDS.top - CONFIG.proximity &&
-          event?.y < CARD_BOUNDS.top + CARD_BOUNDS.height + CONFIG.proximity
-        ) {
-          CARD.style.setProperty("--active", "1");
-        } else {
-          CARD.style.setProperty("--active", "" + CONFIG.opacity);
+      const cards = container.querySelectorAll(
+        `.glow-card-${identifier}`
+      ) as NodeListOf<HTMLElement>;
+
+      cards.forEach((card) => {
+        const bounds = card.getBoundingClientRect();
+        const proximity = 40;
+
+        const isNear =
+          event.x > bounds.left - proximity &&
+          event.x < bounds.right + proximity &&
+          event.y > bounds.top - proximity &&
+          event.y < bounds.bottom + proximity;
+
+        card.style.setProperty("--active", isNear ? "1" : "0");
+
+        if (isNear) {
+          const centerX = bounds.left + bounds.width * 0.5;
+          const centerY = bounds.top + bounds.height * 0.5;
+          let angle =
+            (Math.atan2(event.y - centerY, event.x - centerX) * 180) / Math.PI;
+          angle = angle < 0 ? angle + 360 : angle;
+          card.style.setProperty("--start", String(angle + 90));
         }
+      });
+    },
+    [identifier]
+  );
 
-        const CARD_CENTER = [
-          CARD_BOUNDS.left + CARD_BOUNDS.width * 0.5,
-          CARD_BOUNDS.top + CARD_BOUNDS.height * 0.5,
-        ];
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
 
-        let ANGLE =
-          (Math.atan2(event?.y - CARD_CENTER[1], event?.x - CARD_CENTER[0]) *
-            180) /
-          Math.PI;
+    // Set CSS properties
+    container.style.setProperty("--gap", "32");
+    container.style.setProperty("--blur", "12");
+    container.style.setProperty("--spread", "80");
+    container.style.setProperty("--direction", "row");
 
-        ANGLE = ANGLE < 0 ? ANGLE + 360 : ANGLE;
-
-        CARD.style.setProperty("--start", "" + (ANGLE + 90));
-      }
-    };
-
-    document.body.addEventListener("pointermove", UPDATE);
-
-    const RESTYLE = () => {
-      CONTAINER.style.setProperty("--gap", "" + CONFIG.gap);
-      CONTAINER.style.setProperty("--blur", "" + CONFIG.blur);
-      CONTAINER.style.setProperty("--spread", "" + CONFIG.spread);
-      CONTAINER.style.setProperty(
-        "--direction",
-        CONFIG.vertical ? "column" : "row"
-      );
-    };
-
-    RESTYLE();
-    // UPDATE(null);
-
-    // Cleanup event listener
-    return () => {
-      document.body.removeEventListener("pointermove", UPDATE);
-    };
-  }, [identifier]);
+    document.body.addEventListener("pointermove", updateGlow);
+    return () => document.body.removeEventListener("pointermove", updateGlow);
+  }, [updateGlow]);
 
   return (
-    <div className={`glow-container-${identifier} glow-container`}>
+    <div
+      ref={containerRef}
+      className={`glow-container-${identifier} glow-container`}
+    >
       <article className={`glow-card glow-card-${identifier}`}>
-        <div className="glows"></div>
+        <div className="glows" />
         {children}
       </article>
     </div>

@@ -24,19 +24,31 @@ const Skill = () => {
           play={true}
           direction="left"
         >
-          {SKILLS_DATA.map((skill, id) => (
-            <div className="skill-item" key={id}>
-              <div className="skill-card">
-                <img
-                  src={skillsImage(skill)}
-                  alt={skill}
-                  width={40}
-                  height={40}
-                />
-                <p className="skill-name">{skill}</p>
+          {SKILLS_DATA.map((skill, id) => {
+            const skillImage = skillsImage(skill);
+            return (
+              <div className="skill-item" key={id}>
+                <div className="skill-card">
+                  {skillImage ? (
+                    <img
+                      src={skillImage}
+                      alt={skill}
+                      width={40}
+                      height={40}
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                    />
+                  ) : (
+                    <div className="skill-icon-placeholder">
+                      {skill.charAt(0).toUpperCase()}
+                    </div>
+                  )}
+                  <p className="skill-name">{skill}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </Marquee>
       </Col>
     </Row>

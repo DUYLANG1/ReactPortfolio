@@ -1,20 +1,20 @@
 import { Col, Row } from "react-bootstrap";
 import AnimationLottie from "@/components/common/AnimationLottie";
 import experienceJSON from "assets/lottie/code.json";
-import { EXPERIENCES } from "helpers/data";
+import { EXPERIENCES, type Experience } from "helpers/data";
 import GlowCard from "@/components/common/GlowCard";
 import { BsPersonWorkspace } from "react-icons/bs";
 import blurImg from "assets/blur-23.svg";
 import { useCurrentApp } from "components/context/useCurrentApp";
 import { useTranslation } from "react-i18next";
 
-type TLanguage = "vi" | "en";
+type Language = "vi" | "en";
 
 const Experience = () => {
   const { theme } = useCurrentApp();
   const { t, i18n } = useTranslation();
 
-  const currentLanguage = i18n.resolvedLanguage as TLanguage;
+  const currentLanguage = (i18n.resolvedLanguage || "en") as Language;
 
   return (
     <Row className="mb-5">

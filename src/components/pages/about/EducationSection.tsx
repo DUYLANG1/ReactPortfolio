@@ -1,38 +1,23 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
 import AnimationLottie from "@/components/common/AnimationLottie";
 import GlowCard from "@/components/common/GlowCard";
-import {
-  EducationSectionProps,
-  ParsedAnimationData,
-  AboutTranslationKey,
-} from "./types";
-
 import { DEVELOPMENT_LOTTIE } from "assets/lottie/string/development";
-
 import { FaGraduationCap } from "react-icons/fa6";
 import "./EducationSection.scss";
 
-const EducationSection: React.FC<EducationSectionProps> = () => {
+const EducationSection = () => {
   const { t } = useTranslation();
 
-  // Type-safe translation helper function
-  const getTranslation = (key: AboutTranslationKey): string => {
-    return t(key);
-  };
-
-  // Memoize parsed animation to avoid repeated JSON.parse calls with error handling
-  const developmentAnimation: ParsedAnimationData =
-    useMemo((): ParsedAnimationData => {
-      try {
-        return JSON.parse(DEVELOPMENT_LOTTIE);
-      } catch (error) {
-        console.warn("Failed to parse development animation:", error);
-        return {}; // Return empty object as fallback
-      }
-    }, []);
+  const developmentAnimation = useMemo(() => {
+    try {
+      return JSON.parse(DEVELOPMENT_LOTTIE);
+    } catch {
+      return {};
+    }
+  }, []);
 
   return (
     <section
@@ -62,7 +47,7 @@ const EducationSection: React.FC<EducationSectionProps> = () => {
                 id="education-heading"
                 className="education-title text-center brand-red"
               >
-                {getTranslation("aboutSection.educationTitle")}
+                {t("aboutSection.educationTitle")}
               </h3>
             </div>
             <div>
@@ -76,7 +61,7 @@ const EducationSection: React.FC<EducationSectionProps> = () => {
                   <div className="experience-container">
                     <div className="duration-text">
                       <p aria-label="Education duration">
-                        {getTranslation("aboutSection.educationDuration")}
+                        {t("aboutSection.educationDuration")}
                       </p>
                     </div>
                     <div className="details" id="education-details">
@@ -89,10 +74,10 @@ const EducationSection: React.FC<EducationSectionProps> = () => {
                       </div>
                       <div className="info">
                         <h4 id="education-degree" className="title">
-                          {getTranslation("aboutSection.educationDegree")}
+                          {t("aboutSection.educationDegree")}
                         </h4>
                         <p className="company">
-                          {getTranslation("aboutSection.educationUniversity")}
+                          {t("aboutSection.educationUniversity")}
                         </p>
                       </div>
                     </div>

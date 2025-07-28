@@ -1,23 +1,14 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
-import { AboutIntroProps, AboutTranslationKey } from "./types";
 import "./AboutIntro.scss";
 
-const AboutIntro: React.FC<AboutIntroProps> = () => {
+const AboutIntro = () => {
   const { t } = useTranslation();
-
-  // Type-safe translation helper function
-  const getTranslation = (key: AboutTranslationKey): string => {
-    return t(key);
-  };
 
   return (
     <section className="about-intro" aria-labelledby="about-intro-heading">
       <h2 id="about-intro-heading" className="about-title">
-        {getTranslation("aboutSection.introduce")}{" "}
-        <span className="brand-red">
-          {getTranslation("aboutSection.myself")}
-        </span>
+        {t("aboutSection.introduce")}{" "}
+        <span className="brand-red">{t("aboutSection.myself")}</span>
       </h2>
 
       <div
@@ -25,9 +16,9 @@ const AboutIntro: React.FC<AboutIntroProps> = () => {
         role="region"
         aria-label="Personal introduction"
       >
-        <p>{getTranslation("aboutSection.greeting")}</p>
-        <p>{getTranslation("aboutSection.working")}</p>
-        <p>{getTranslation("aboutSection.education")}</p>
+        <p>{t("aboutSection.greeting")}</p>
+        <p>{t("aboutSection.working")}</p>
+        <p>{t("aboutSection.education")}</p>
       </div>
 
       <div
@@ -39,18 +30,12 @@ const AboutIntro: React.FC<AboutIntroProps> = () => {
           My Hobbies
         </h3>
         <p aria-describedby="hobbies-list">
-          {getTranslation("aboutSection.hobbiesHeading")}
+          {t("aboutSection.hobbiesHeading")}
         </p>
         <ul id="hobbies-list" role="list" aria-label="List of hobbies">
-          <li role="listitem">
-            {getTranslation("aboutSection.hobbies.reading")}
-          </li>
-          <li role="listitem">
-            {getTranslation("aboutSection.hobbies.exercizing")}
-          </li>
-          <li role="listitem">
-            {getTranslation("aboutSection.hobbies.traveling")}
-          </li>
+          <li role="listitem">{t("aboutSection.hobbies.reading")}</li>
+          <li role="listitem">{t("aboutSection.hobbies.exercizing")}</li>
+          <li role="listitem">{t("aboutSection.hobbies.traveling")}</li>
         </ul>
       </div>
 
@@ -59,7 +44,7 @@ const AboutIntro: React.FC<AboutIntroProps> = () => {
         role="complementary"
         aria-label="Personal quote"
       >
-        {getTranslation("aboutSection.quote")}
+        {t("aboutSection.quote")}
       </blockquote>
     </section>
   );
