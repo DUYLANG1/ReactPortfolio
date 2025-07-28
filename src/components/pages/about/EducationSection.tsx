@@ -13,6 +13,7 @@ import {
 import { DEVELOPMENT_LOTTIE } from "assets/lottie/string/development";
 
 import { FaGraduationCap } from "react-icons/fa6";
+import "./EducationSection.scss";
 
 const EducationSection: React.FC<EducationSectionProps> = () => {
   const { t } = useTranslation();

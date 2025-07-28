@@ -1,0 +1,176 @@
+// AboutIntro component styles
+.about-intro {
+  padding: clamp(1rem, 3vw, 2rem);
+
+  .about-title {
+    text-align: center;
+    margin-bottom: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 600;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.2;
+    transition: color 0.3s ease;
+
+    @media (max-width: 576px) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .about-description {
+    margin-bottom: 2rem;
+
+    p {
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .about-hobbies {
+    margin-bottom: 2rem;
+
+    p {
+      margin-bottom: 1rem;
+      font-weight: 500;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: var(--brand-name-100);
+      transition: color 0.3s ease;
+    }
+
+    ul {
+      padding-left: 1.8rem;
+      list-style-type: none;
+      position: relative;
+
+      li {
+        margin-bottom: 0.8rem;
+        line-height: 1.6;
+        font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+        position: relative;
+        padding-left: 1.2rem;
+        opacity: 0.9;
+        transition: all 0.3s ease;
+
+        &::before {
+          content: "▸";
+          position: absolute;
+          left: 0;
+          color: var(--brand-name-200);
+          font-weight: bold;
+          transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        &:hover {
+          opacity: 1;
+          transform: translateX(4px);
+
+          &::before {
+            transform: scale(1.2);
+            color: var(--brand-social);
+          }
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      margin-bottom: 1.5rem;
+
+      ul {
+        padding-left: 1.5rem;
+
+        li {
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+
+  .about-quote {
+    text-align: center;
+    font-style: italic;
+    margin-top: 2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-weight: 500;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: linear-gradient(
+      135deg,
+      var(--glow-card-background) 0%,
+      transparent 100%
+    );
+    border: 1px solid var(--border-header-right);
+    position: relative;
+    transition: all 0.3s ease;
+
+    &::before {
+      content: '"';
+      position: absolute;
+      top: 0.5rem;
+      left: 1rem;
+      font-size: 2rem;
+      color: var(--brand-name-200);
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+
+    &::after {
+      content: '"';
+      position: absolute;
+      bottom: 0.5rem;
+      right: 1rem;
+      font-size: 2rem;
+      color: var(--brand-name-200);
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      border-color: var(--brand-social);
+
+      &::before,
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 1.5rem;
+      padding: 1rem;
+
+      &::before,
+      &::after {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+
+  @media (max-width: 576px) {
+    .about-quote {
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+  }
+}

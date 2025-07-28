@@ -1,0 +1,205 @@
+// EducationSection component styles
+.education-section {
+  margin: clamp(2rem, 5vw, 4rem) 0;
+
+  .education-animation {
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1rem, 3vw, 2rem);
+
+    // Animation hover effect
+    > div {
+      transition: transform 0.3s ease;
+      border-radius: 16px;
+      overflow: hidden;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    @media (max-width: 992px) {
+      padding: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      display: none !important;
+    }
+  }
+
+  .education-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1rem, 3vw, 2rem);
+
+    @media (max-width: 992px) {
+      padding: 1.5rem;
+    }
+  }
+
+  .education-card-container {
+    width: 100%;
+    max-width: 520px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  .education-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+    position: relative;
+    transition: color 0.3s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(
+        90deg,
+        var(--brand-name-200),
+        var(--brand-social)
+      );
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 80px;
+    }
+
+    @media (max-width: 768px) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .education-card-content {
+    padding: 2rem;
+    border-radius: 16px;
+    background: var(--glow-card-background);
+    border: 1px solid var(--border-header-right);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(
+        90deg,
+        var(--brand-name-200),
+        var(--brand-social)
+      );
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      border-color: var(--brand-social);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+
+      &::before {
+        transform: scaleX(1);
+      }
+    }
+
+    .experience-container {
+      .duration-text {
+        margin-bottom: 1.5rem;
+
+        p {
+          font-size: clamp(0.9rem, 2.5vw, 1rem);
+          color: var(--brand-social);
+          font-weight: 500;
+          margin: 0;
+          opacity: 0.9;
+          transition: opacity 0.3s ease;
+        }
+      }
+
+      .details {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+
+        .icon {
+          color: var(--brand-name-200);
+          transition: all 0.3s ease;
+          padding: 0.5rem;
+          border-radius: 12px;
+          background: var(--background-body-tertiary);
+
+          &:hover {
+            transform: scale(1.1) rotate(5deg);
+            color: var(--brand-social);
+          }
+        }
+
+        .info {
+          flex: 1;
+
+          .title {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: var(--brand-name-100);
+            }
+          }
+
+          .company {
+            font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+            color: var(--text-white);
+            opacity: 0.8;
+            margin: 0;
+            transition: opacity 0.3s ease;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+
+        @media (max-width: 768px) {
+          gap: 1rem;
+
+          .icon {
+            padding: 0.4rem;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    margin: 2rem 0;
+  }
+
+  @media (max-width: 576px) {
+    margin-top: 2rem;
+  }
+}

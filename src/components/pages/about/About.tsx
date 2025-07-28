@@ -10,7 +10,7 @@ import {
 } from "./index";
 import { AboutProps } from "./types";
 
-import "./about.scss";
+import "./About.scss";
 
 const About: React.FC<AboutProps> = () => {
   return (

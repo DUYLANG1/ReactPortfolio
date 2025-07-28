@@ -1,0 +1,29 @@
+// AboutAnimation component styles
+.about-animation-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: clamp(1rem, 3vw, 2rem);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  // Animation wrapper for better control
+  > div {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+}

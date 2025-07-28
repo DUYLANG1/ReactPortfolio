@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { AboutIntroProps, AboutTranslationKey } from "./types";
+import "./AboutIntro.scss";
 
 const AboutIntro: React.FC<AboutIntroProps> = () => {
   const { t } = useTranslation();

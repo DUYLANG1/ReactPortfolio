@@ -8,6 +8,7 @@ import {
 } from "./types";
 
 import codingJSON from "assets/lottie/coding.json";
+import "./AboutAnimation.scss";
 
 const AboutAnimation: React.FC<AboutAnimationProps> = ({ width = "80%" }) => {
   // Type assertion for imported JSON animation data with width validation

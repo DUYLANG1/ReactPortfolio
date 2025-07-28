@@ -14,6 +14,7 @@ import {
 
 import { CONTACT_LOTTIE } from "assets/lottie/string/contact";
 import { APP_DATA } from "helpers/data";
+import "./ContactSection.scss";
 
 const ContactSection: React.FC<ContactSectionProps> = () => {
   const { t } = useTranslation();
