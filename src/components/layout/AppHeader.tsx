@@ -16,6 +16,7 @@ function AppHeader() {
   const { t, i18n } = useTranslation();
   const [isSticky, setIsSticky] = useState(false);
   const [expanded, setExpanded] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const navbarRef = useRef(null);
 
   useEffect(() => {
@@ -43,6 +44,7 @@ function AppHeader() {
 
   const handleLanguageChange = (lang: string) => {
     i18n.changeLanguage(lang);
+    setDropdownOpen(false);
     closeNavbar();
   };
 
@@ -64,9 +66,10 @@ function AppHeader() {
           <Nav className="me-auto">
             <NavLink
               to="/"
+              end
               onClick={closeNavbar}
               className={({ isActive }) =>
-                `nav-link ${isActive ? "active-nav" : ""}`
+                `nav-link ${isActive ? "active" : ""}`
               }
             >
               {t("appHeader.home")}
@@ -75,7 +78,7 @@ function AppHeader() {
               to="/project"
               onClick={closeNavbar}
               className={({ isActive }) =>
-                `nav-link ${isActive ? "active-nav" : ""}`
+                `nav-link ${isActive ? "active" : ""}`
               }
             >
               {t("appHeader.project")}
@@ -84,30 +87,34 @@ function AppHeader() {
               to="/about"
               onClick={closeNavbar}
               className={({ isActive }) =>
-                `nav-link ${isActive ? "active-nav" : ""}`
+                `nav-link ${isActive ? "active" : ""}`
               }
             >
               {t("appHeader.about")}
             </NavLink>
           </Nav>
           <Nav className="ms-auto">
-            <div className="nav-link" style={{ cursor: "pointer" }}>
+            <div
+              className="nav-link d-flex align-items-center"
+              style={{ cursor: "pointer", minWidth: "44px", minHeight: "44px" }}
+              onClick={() => handleMode(theme === "light" ? "dark" : "light")}
+            >
               {theme === "light" ? (
-                <MdOutlineLightMode
-                  onClick={() => handleMode("dark")}
-                  style={{ fontSize: 20 }}
-                />
+                <MdOutlineLightMode style={{ fontSize: 20 }} />
               ) : (
-                <MdNightlight
-                  onClick={() => handleMode("light")}
-                  style={{ fontSize: 20 }}
-                />
+                <MdNightlight style={{ fontSize: 20 }} />
               )}
             </div>
-            <NavDropdown title={renderFlag(i18n.resolvedLanguage!)}>
+            <NavDropdown
+              title={renderFlag(i18n.resolvedLanguage!)}
+              show={dropdownOpen}
+              onToggle={setDropdownOpen}
+            >
               <div
                 onClick={() => handleLanguageChange("en")}
-                className="dropdown-item d-flex gap-2 align-items-center"
+                className={`dropdown-item d-flex gap-2 align-items-center ${
+                  i18n.resolvedLanguage === "en" ? "active" : ""
+                }`}
                 style={{ cursor: "pointer" }}
               >
                 <img style={{ height: 20, width: 20 }} src={enFlag} alt="en" />
@@ -115,7 +122,9 @@ function AppHeader() {
               </div>
               <div
                 onClick={() => handleLanguageChange("vi")}
-                className="dropdown-item d-flex gap-2 align-items-center"
+                className={`dropdown-item d-flex gap-2 align-items-center ${
+                  i18n.resolvedLanguage === "vi" ? "active" : ""
+                }`}
                 style={{ cursor: "pointer" }}
               >
                 <img style={{ height: 20, width: 20 }} src={viFlag} alt="vi" />

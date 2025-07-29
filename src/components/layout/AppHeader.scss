@@ -58,9 +58,9 @@
   }
 }
 
-// Remove or modify the .active-nav class since we're handling the underline in .nav-link
-.active-nav {
-  &::after {
-    width: calc(100% - 30px);
+// Active navigation styling
+.nav-link.active {
+  &::before {
+    width: calc(100% - 30px) !important;
   }
 }
