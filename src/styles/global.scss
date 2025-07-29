@@ -17,6 +17,17 @@ $spacers: (
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
+// Improve scroll performance on mobile
+body {
+  -webkit-overflow-scrolling: touch;
 }
 
 .brand-green {
