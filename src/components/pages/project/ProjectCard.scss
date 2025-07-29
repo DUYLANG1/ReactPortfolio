@@ -1,7 +1,22 @@
+.project-card {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
+  height: auto;
+  cursor: pointer;
+}
+
 .project-card-view {
-  transition: transform 0.3s ease;
+  box-shadow: 0 3px 3px 3px var(--border-header-right);
+  color: var(--text-white);
+  background-color: transparent;
+  opacity: 0.9;
+  transition: all 0.5s ease 0s;
+  height: 100%;
 
   &:hover {
+    border-color: var(--brand-social);
     transform: translateY(-8px);
   }
 

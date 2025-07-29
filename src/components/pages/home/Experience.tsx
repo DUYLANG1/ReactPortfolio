@@ -7,6 +7,7 @@ import { BsPersonWorkspace } from "react-icons/bs";
 import blurImg from "assets/blur-23.svg";
 import { useCurrentApp } from "components/context/useCurrentApp";
 import { useTranslation } from "react-i18next";
+import "./Experience.scss";
 
 type Language = "vi" | "en";
 
