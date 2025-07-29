@@ -1,15 +1,6 @@
-import { useState, useEffect } from "react";
 import "./HeaderRight.scss";
 
 const HeaderRight = () => {
-  const [isTyping, setIsTyping] = useState(true);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIsTyping((prev) => !prev);
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
   return (
     <div className="header-right">
       <div className="border-top"></div>
@@ -142,7 +133,7 @@ const HeaderRight = () => {
               <span>.</span>
               <span className="text-blue-100">log</span>
               <span>(developer.hireable());</span>
-              {isTyping && <span className="cursor">|</span>}
+              <span className="cursor">|</span>
             </span>
           </div>
         </code>

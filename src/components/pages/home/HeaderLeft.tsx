@@ -6,25 +6,20 @@ import ResizeButton from "@/components/common/ResizeButton";
 import { APP_DATA } from "helpers/data";
 import { MdFileDownload } from "react-icons/md";
 import { AiFillFire } from "react-icons/ai";
-import { memo, useCallback } from "react";
 
-interface IProps {
+interface Props {
   scrollToExperienceSection: () => void;
 }
 
-const HeaderLeft = memo(({ scrollToExperienceSection }: IProps) => {
+const HeaderLeft = ({ scrollToExperienceSection }: Props) => {
   const { t } = useTranslation();
 
-  const openInNewTab = useCallback((url: string): void => {
-    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
-    if (newWindow) newWindow.opener = null;
-  }, []);
-
-  const handleDownloadCV = useCallback(() => {
-    openInNewTab(
-      "https://drive.google.com/file/d/1MQDW9ag2HSlDSEbsO7al2lim4AWwakki/view?usp=sharing"
+  const handleDownloadCV = () => {
+    window.open(
+      "https://drive.google.com/file/d/1MQDW9ag2HSlDSEbsO7al2lim4AWwakki/view?usp=sharing",
+      "_blank"
     );
-  }, [openInNewTab]);
+  };
 
   return (
     <div className="header-left">
@@ -78,6 +73,6 @@ const HeaderLeft = memo(({ scrollToExperienceSection }: IProps) => {
       </div>
     </div>
   );
-});
+};
 
 export default HeaderLeft;

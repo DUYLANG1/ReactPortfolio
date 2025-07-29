@@ -5,35 +5,25 @@ import {
   EducationSection,
   ContactSection,
 } from "./index";
-
 import "./About.scss";
 
-const About = () => {
-  return (
-    <main className="about-content" role="main" aria-labelledby="about-heading">
-      <section
-        className="about-intro-section"
-        aria-labelledby="about-intro-heading"
+const About = () => (
+  <div className="about-content">
+    <Row className="about-intro-section">
+      <Col md={6} xs={12}>
+        <AboutIntro />
+      </Col>
+      <Col
+        md={6}
+        xs={12}
+        className="d-flex align-items-center justify-content-center"
       >
-        <Row className="about-intro-section">
-          <Col md={6} xs={12}>
-            <AboutIntro />
-          </Col>
-          <Col
-            md={6}
-            xs={12}
-            className="d-flex align-items-center justify-content-center"
-            role="img"
-            aria-label="Coding animation illustration"
-          >
-            <AboutAnimation />
-          </Col>
-        </Row>
-      </section>
-      <EducationSection />
-      <ContactSection />
-    </main>
-  );
-};
+        <AboutAnimation />
+      </Col>
+    </Row>
+    <EducationSection />
+    <ContactSection />
+  </div>
+);
 
 export default About;

@@ -5,48 +5,31 @@ const AboutIntro = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="about-intro" aria-labelledby="about-intro-heading">
-      <h2 id="about-intro-heading" className="about-title">
+    <div className="about-intro">
+      <h2 className="about-title">
         {t("aboutSection.introduce")}{" "}
         <span className="brand-red">{t("aboutSection.myself")}</span>
       </h2>
 
-      <div
-        className="about-description"
-        role="region"
-        aria-label="Personal introduction"
-      >
+      <div className="about-description">
         <p>{t("aboutSection.greeting")}</p>
         <p>{t("aboutSection.working")}</p>
         <p>{t("aboutSection.education")}</p>
       </div>
 
-      <div
-        className="about-hobbies"
-        role="region"
-        aria-labelledby="hobbies-heading"
-      >
-        <h3 id="hobbies-heading" className="sr-only">
-          My Hobbies
-        </h3>
-        <p aria-describedby="hobbies-list">
-          {t("aboutSection.hobbiesHeading")}
-        </p>
-        <ul id="hobbies-list" role="list" aria-label="List of hobbies">
-          <li role="listitem">{t("aboutSection.hobbies.reading")}</li>
-          <li role="listitem">{t("aboutSection.hobbies.exercizing")}</li>
-          <li role="listitem">{t("aboutSection.hobbies.traveling")}</li>
+      <div className="about-hobbies">
+        <p>{t("aboutSection.hobbiesHeading")}</p>
+        <ul>
+          <li>{t("aboutSection.hobbies.reading")}</li>
+          <li>{t("aboutSection.hobbies.exercizing")}</li>
+          <li>{t("aboutSection.hobbies.traveling")}</li>
         </ul>
       </div>
 
-      <blockquote
-        className="about-quote brand-red"
-        role="complementary"
-        aria-label="Personal quote"
-      >
+      <blockquote className="about-quote brand-red">
         {t("aboutSection.quote")}
       </blockquote>
-    </section>
+    </div>
   );
 };
 

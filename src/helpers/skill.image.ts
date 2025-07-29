@@ -18,7 +18,7 @@ import aws from "assets/svg/skills/aws.svg";
 import firebase from "assets/svg/skills/firebase.svg";
 import figma from "assets/svg/skills/figma.svg";
 
-const skillImageMap: { [key: string]: string } = {
+const skillImages: Record<string, string> = {
   html,
   css,
   javascript,
@@ -40,6 +40,5 @@ const skillImageMap: { [key: string]: string } = {
   figma,
 };
 
-export const skillsImage = (skill: string): string | null => {
-  return skillImageMap[skill.toLowerCase()] || null;
-};
+export const skillsImage = (skill: string) =>
+  skillImages[skill.toLowerCase()] || null;
