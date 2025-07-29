@@ -18,49 +18,28 @@ import aws from "assets/svg/skills/aws.svg";
 import firebase from "assets/svg/skills/firebase.svg";
 import figma from "assets/svg/skills/figma.svg";
 
-export const skillsImage = (skill: string) => {
-  const skillID = skill.toLowerCase();
-  switch (skillID) {
-    case "html":
-      return html;
-    case "css":
-      return css;
-    case "javascript":
-      return javascript;
-    case "typescript":
-      return typescript;
-    case "react":
-      return react;
-    case "antd":
-      return antd;
-    case "materialui":
-      return materialui;
-    case "next js":
-      return nextJS;
-    case "express js":
-      return expressJS;
-    case "nest js":
-      return nestJS;
-    case "sql":
-      return mysql;
-    case "nosql":
-      return mongodb;
-    case "git":
-      return git;
-    case "bootstrap":
-      return bootstrap;
-    case "tailwind":
-      return tailwind;
-    case "docker":
-      return docker;
-    case "aws":
-      return aws;
-    case "firebase":
-      return firebase;
-    case "figma":
-      return figma;
-    default:
-      // Return null for skills without images
-      return null;
-  }
+const skillImageMap: { [key: string]: string } = {
+  html,
+  css,
+  javascript,
+  typescript,
+  react,
+  antd,
+  materialui,
+  "next js": nextJS,
+  "express js": expressJS,
+  "nest js": nestJS,
+  sql: mysql,
+  nosql: mongodb,
+  git,
+  bootstrap,
+  tailwind,
+  docker,
+  aws,
+  firebase,
+  figma,
+};
+
+export const skillsImage = (skill: string): string | null => {
+  return skillImageMap[skill.toLowerCase()] || null;
 };

@@ -1,6 +1,4 @@
 import { Col, Row } from "react-bootstrap";
-
-import Divider from "@/components/common/Divider";
 import {
   AboutIntro,
   AboutAnimation,
@@ -32,9 +30,7 @@ const About = () => {
           </Col>
         </Row>
       </section>
-
       <EducationSection />
-      <Divider />
       <ContactSection />
     </main>
   );

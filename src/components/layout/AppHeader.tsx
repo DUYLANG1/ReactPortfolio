@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useCurrentApp } from "components/context/useCurrentApp";
 import { useTranslation } from "react-i18next";
 import { NavDropdown } from "react-bootstrap";
@@ -10,7 +10,6 @@ import viFlag from "assets/svg/language/vi.svg";
 import enFlag from "assets/svg/language/en.svg";
 import "./AppHeader.scss";
 import { MdOutlineLightMode, MdNightlight } from "react-icons/md";
-import CustomNavLink from "components/common/CustomNavLink";
 
 function AppHeader() {
   const { theme, setTheme } = useCurrentApp();
@@ -28,8 +27,6 @@ function AppHeader() {
   }, []);
 
   const handleMode = (mode: "light" | "dark") => {
-    localStorage.setItem("theme", mode);
-    document.documentElement.setAttribute("data-bs-theme", mode);
     setTheme(mode);
     setExpanded(false);
   };
@@ -65,15 +62,33 @@ function AppHeader() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <CustomNavLink to="/" onClick={closeNavbar}>
+            <NavLink
+              to="/"
+              onClick={closeNavbar}
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active-nav" : ""}`
+              }
+            >
               {t("appHeader.home")}
-            </CustomNavLink>
-            <CustomNavLink to="/project" onClick={closeNavbar}>
+            </NavLink>
+            <NavLink
+              to="/project"
+              onClick={closeNavbar}
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active-nav" : ""}`
+              }
+            >
               {t("appHeader.project")}
-            </CustomNavLink>
-            <CustomNavLink to="/about" onClick={closeNavbar}>
+            </NavLink>
+            <NavLink
+              to="/about"
+              onClick={closeNavbar}
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active-nav" : ""}`
+              }
+            >
               {t("appHeader.about")}
-            </CustomNavLink>
+            </NavLink>
           </Nav>
           <Nav className="ms-auto">
             <div className="nav-link" style={{ cursor: "pointer" }}>

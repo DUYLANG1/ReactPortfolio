@@ -3,9 +3,15 @@ import Tilt from "react-parallax-tilt";
 import avatarImg from "assets/avatar.svg";
 import "./Introduction.scss";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const Introduction = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const handleAvatarClick = () => {
+    navigate("/about");
+  };
 
   return (
     <section
@@ -52,7 +58,13 @@ const Introduction = () => {
         </Col>
         <Col md={3} className="d-md-block d-none">
           <Tilt>
-            <img src={avatarImg} className="img-fluid" alt="avatar" />
+            <img
+              src={avatarImg}
+              className="img-fluid"
+              alt="avatar"
+              onClick={handleAvatarClick}
+              style={{ cursor: "pointer" }}
+            />
           </Tilt>
         </Col>
       </Row>

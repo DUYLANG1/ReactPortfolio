@@ -30,15 +30,7 @@ const Skill = () => {
               <div className="skill-item" key={id}>
                 <div className="skill-card">
                   {skillImage ? (
-                    <img
-                      src={skillImage}
-                      alt={skill}
-                      width={40}
-                      height={40}
-                      onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                      }}
-                    />
+                    <img src={skillImage} alt={skill} width={40} height={40} />
                   ) : (
                     <div className="skill-icon-placeholder">
                       {skill.charAt(0).toUpperCase()}
