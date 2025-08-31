@@ -1,36 +1,25 @@
-import { useEffect, useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import "./ScrollProgress.scss";
 
 const ScrollProgress = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const { scrollYProgress } = useScroll();
 
-  useEffect(() => {
-    let ticking = false;
-
-    const updateScroll = () => {
-      const totalHeight = document.body.scrollHeight - window.innerHeight;
-      const progress = totalHeight ? (window.scrollY / totalHeight) * 100 : 0;
-      setScrollProgress(progress);
-      ticking = false;
-    };
-
-    const requestTick = () => {
-      if (!ticking) {
-        requestAnimationFrame(updateScroll);
-        ticking = true;
-      }
-    };
-
-    updateScroll();
-    window.addEventListener("scroll", requestTick, { passive: true });
-    return () => window.removeEventListener("scroll", requestTick);
-  }, []);
+  // Add spring animation for smoother progress
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   return (
     <div className="scroll-progress-container">
-      <div
+      <motion.div
         className="scroll-progress-bar"
-        style={{ width: `${scrollProgress}%` }}
+        style={{
+          scaleX,
+          transformOrigin: "0%",
+        }}
+        initial={{ scaleX: 0 }}
       />
     </div>
   );

@@ -11,11 +11,11 @@
 
   .scroll-progress-bar {
     height: 100%;
-    width: 0;
+    width: 100%;
     background: linear-gradient(90deg, #ec4899 0%, #8b5cf6 50%, #ec4899 100%);
     background-size: 200% 100%;
     animation: gradient 3s linear infinite;
-    transition: width 0.2s ease-out;
+    will-change: transform;
   }
 }
 

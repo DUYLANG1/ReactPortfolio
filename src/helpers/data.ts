@@ -1,23 +1,5 @@
-import NextJsImage from "assets/svg/skills/nextJS.svg";
-
-export interface LocalizedText {
-  vi: string;
-  en: string;
-}
-
-export interface Experience {
-  id: number;
-  title: LocalizedText;
-  company: LocalizedText;
-  duration: LocalizedText;
-}
-
-export const APP_DATA = {
-  LINKEDIN_URL: "https://www.linkedin.com/in/vu-lang-887166224/",
-  GMAIL_URL:
-    "https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSGMGFDTzBXNfHHbTbTQbxCWZnvbGRFNbPTfWXlZRtpLkdVdVsFqBxvgCRTcGdfWsmcPGGjq",
-  GITHUB_URL: "https://github.com/DUYLANG1?tab=repositories",
-} as const;
+import NextJsImage from "@/assets/svg/skills/nextJS.svg";
+import { Experience, Project } from "@/types/global";
 
 export const EXPERIENCES: Experience[] = [
   {
@@ -34,7 +16,7 @@ export const EXPERIENCES: Experience[] = [
   },
 ];
 
-export const PROJECTS = [
+export const PROJECTS: Project[] = [
   {
     id: 1,
     imgPath: NextJsImage,
@@ -46,26 +28,4 @@ export const PROJECTS = [
     githubLink: "https://github.com/DUYLANG1/LSS-FRONTEND",
     demoLink: "#",
   },
-] as const;
-
-export const SKILLS_DATA = [
-  "HTML",
-  "CSS",
-  "Javascript",
-  "Typescript",
-  "React",
-  "Antd",
-  "MaterialUI",
-  "Next JS",
-  "Express JS",
-  "Nest JS",
-  "SQL",
-  "noSQL",
-  "Git",
-  "Bootstrap",
-  "Tailwind",
-  "Docker",
-  "AWS",
-  "Firebase",
-  "Figma",
-] as const;
+];

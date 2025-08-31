@@ -1,7 +1,8 @@
 import { Col, Row } from "react-bootstrap";
 import AnimationLottie from "@/components/common/AnimationLottie";
 import experienceJSON from "assets/lottie/code.json";
-import { EXPERIENCES, type Experience } from "helpers/data";
+import { EXPERIENCES } from "helpers/data";
+import type { Experience } from "@/types/global";
 import GlowCard from "@/components/common/GlowCard";
 import { BsPersonWorkspace } from "react-icons/bs";
 import blurImg from "assets/blur-23.svg";

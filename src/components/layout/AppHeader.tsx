@@ -27,8 +27,8 @@ function AppHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleMode = (mode: "light" | "dark") => {
-    setTheme(mode);
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
     setExpanded(false);
   };
 
@@ -97,7 +97,7 @@ function AppHeader() {
             <div
               className="nav-link d-flex align-items-center"
               style={{ cursor: "pointer", minWidth: "44px", minHeight: "44px" }}
-              onClick={() => handleMode(theme === "light" ? "dark" : "light")}
+              onClick={toggleTheme}
             >
               {theme === "light" ? (
                 <MdOutlineLightMode style={{ fontSize: 20 }} />

@@ -1,5 +1,4 @@
-import { SKILLS_DATA } from "helpers/data";
-import { skillsImage } from "helpers/skill.image";
+import { SKILLS } from "@/helpers/skills";
 import Marquee from "react-fast-marquee";
 import "./Skill.scss";
 import { Col, Row } from "react-bootstrap";
@@ -24,23 +23,19 @@ const Skill = () => {
           play={true}
           direction="left"
         >
-          {SKILLS_DATA.map((skill, id) => {
-            const skillImage = skillsImage(skill);
-            return (
-              <div className="skill-item" key={id}>
-                <div className="skill-card">
-                  {skillImage ? (
-                    <img src={skillImage} alt={skill} width={40} height={40} />
-                  ) : (
-                    <div className="skill-icon-placeholder">
-                      {skill.charAt(0).toUpperCase()}
-                    </div>
-                  )}
-                  <p className="skill-name">{skill}</p>
-                </div>
+          {SKILLS.map((skill) => (
+            <div className="skill-item" key={skill.name}>
+              <div className="skill-card">
+                <img
+                  src={skill.image}
+                  alt={skill.name}
+                  width={40}
+                  height={40}
+                />
+                <p className="skill-name">{skill.name}</p>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </Marquee>
       </Col>
     </Row>

@@ -1,20 +1,19 @@
 import { createContext, useEffect, useState, ReactNode } from "react";
+import { Theme } from "@/types/global";
 
-export type ThemeContextType = "light" | "dark";
-
-interface IAppContext {
-  theme: ThemeContextType;
-  setTheme: (theme: ThemeContextType) => void;
+interface AppContextType {
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
 }
 
-export const AppContext = createContext<IAppContext | null>(null);
+export const AppContext = createContext<AppContextType | null>(null);
 
 export const AppContextProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<ThemeContextType>(
-    () => (localStorage.getItem("theme") as ThemeContextType) || "light"
+  const [theme, setTheme] = useState<Theme>(
+    () => (localStorage.getItem("theme") as Theme) || "light"
   );
 
-  const handleThemeChange = (newTheme: ThemeContextType) => {
+  const handleThemeChange = (newTheme: Theme) => {
     localStorage.setItem("theme", newTheme);
     document.documentElement.setAttribute("data-bs-theme", newTheme);
     setTheme(newTheme);

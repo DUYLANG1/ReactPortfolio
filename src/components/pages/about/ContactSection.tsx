@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import AnimationLottie from "@/components/common/AnimationLottie";
 import SocialMedia from "@/components/common/SocialMedia";
 import { CONTACT_LOTTIE } from "assets/lottie/string/contact";
-import { APP_DATA } from "helpers/data";
+import { APP_DATA } from "@/constants";
 import "./ContactSection.scss";
 
 const ContactSection = () => {

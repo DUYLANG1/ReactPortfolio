@@ -5,17 +5,34 @@ interface Props {
   fallback?: ReactNode;
 }
 
-class ErrorBoundary extends Component<Props, { hasError: boolean }> {
-  state = { hasError: false };
+interface State {
+  hasError: boolean;
+  error?: Error;
+}
 
-  static getDerivedStateFromError() {
-    return { hasError: true };
+class ErrorBoundary extends Component<Props, State> {
+  state: State = { hasError: false };
+
+  static getDerivedStateFromError(error: Error): State {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error("ErrorBoundary caught an error:", error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
       return (
-        this.props.fallback || <div>Something went wrong. Please refresh.</div>
+        this.props.fallback || (
+          <div className="text-center p-5">
+            <h2>Something went wrong</h2>
+            <p>
+              Please refresh the page or contact support if the problem
+              persists.
+            </p>
+          </div>
+        )
       );
     }
     return this.props.children;

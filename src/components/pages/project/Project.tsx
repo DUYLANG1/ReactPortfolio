@@ -1,7 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import ProjectCard from "./ProjectCard";
 import { useTranslation } from "react-i18next";
-import { PROJECTS } from "helpers/data";
+import { PROJECTS } from "@/helpers/data";
 import { memo } from "react";
 
 const Project = () => {
