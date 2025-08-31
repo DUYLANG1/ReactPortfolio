@@ -1,32 +1,23 @@
-// c:\Users\hungv\Downloads\ReactPortfolio\src\components\layout\app.header.scss
-
 .app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: transparent;
   padding: 0.5rem 0;
   transition: all 0.3s ease-in-out;
   z-index: 10;
 
   &.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
     backdrop-filter: blur(10px);
 
-    // Light theme
     &[data-bs-theme="light"] {
       background-color: rgba(255, 255, 255, 0.85);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
-    // Dark theme
     &[data-bs-theme="dark"] {
-      background-color: rgba(
-        13,
-        18,
-        36,
-        0.85
-      ); // Matches your dark theme background
+      background-color: rgba(13, 18, 36, 0.85);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
   }
@@ -41,12 +32,10 @@
     border-color: var(--text-color);
 
     .navbar-toggler-icon {
-      // Light theme
       .app-header[data-bs-theme="light"] & {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
       }
 
-      // Dark theme
       .app-header[data-bs-theme="dark"] & {
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
       }
@@ -58,7 +47,6 @@
   }
 }
 
-// Active navigation styling
 .nav-link.active {
   &::before {
     width: calc(100% - 30px) !important;

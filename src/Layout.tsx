@@ -8,7 +8,7 @@ function Layout() {
     <div>
       <AppHeader />
       <ScrollProgress />
-      <main style={{ minHeight: "80vh" }}>
+      <main style={{ minHeight: "80vh", paddingTop: "80px" }}>
         <Outlet />
       </main>
       <AppFooter />
